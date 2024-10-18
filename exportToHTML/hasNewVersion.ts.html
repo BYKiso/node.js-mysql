@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>hasNewVersion.ts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #bcbec4;}
+.s4 { color: #2aacb8;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+hasNewVersion.ts</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">import </span><span class="s1">semver from </span><span class="s2">'semver'</span><span class="s3">;</span>
+<a name="l2"><span class="ln">2    </span></a><span class="s0">import </span><span class="s3">{ </span><span class="s1">createConfigDir</span><span class="s3">, </span><span class="s1">getLastUpdate</span><span class="s3">, </span><span class="s1">saveLastUpdate </span><span class="s3">} </span><span class="s1">from </span><span class="s2">'./cache'</span><span class="s3">;</span>
+<a name="l3"><span class="ln">3    </span></a><span class="s0">import </span><span class="s1">getDistVersion from </span><span class="s2">'./getDistVersion'</span><span class="s3">;</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s0">import </span><span class="s3">{ </span><span class="s1">IUpdate </span><span class="s3">} </span><span class="s1">from </span><span class="s2">'./types'</span><span class="s3">;</span>
+<a name="l5"><span class="ln">5    </span></a>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">const </span><span class="s1">hasNewVersion </span><span class="s3">= </span><span class="s1">async </span><span class="s3">({</span>
+<a name="l7"><span class="ln">7    </span></a>  <span class="s1">pkg</span><span class="s3">,</span>
+<a name="l8"><span class="ln">8    </span></a>  <span class="s1">updateCheckInterval </span><span class="s3">= </span><span class="s4">1000 </span><span class="s3">* </span><span class="s4">60 </span><span class="s3">* </span><span class="s4">60 </span><span class="s3">* </span><span class="s4">24</span><span class="s3">,</span>
+<a name="l9"><span class="ln">9    </span></a>  <span class="s1">distTag </span><span class="s3">= </span><span class="s2">'latest'</span><span class="s3">,</span>
+<a name="l10"><span class="ln">10   </span></a>  <span class="s1">alwaysRun</span><span class="s3">,</span>
+<a name="l11"><span class="ln">11   </span></a>  <span class="s1">debug</span><span class="s3">,</span>
+<a name="l12"><span class="ln">12   </span></a><span class="s3">}: </span><span class="s1">IUpdate</span><span class="s3">) =&gt; {</span>
+<a name="l13"><span class="ln">13   </span></a>  <span class="s1">createConfigDir</span><span class="s3">();</span>
+<a name="l14"><span class="ln">14   </span></a>  <span class="s0">const </span><span class="s1">lastUpdateCheck </span><span class="s3">= </span><span class="s1">getLastUpdate</span><span class="s3">(</span><span class="s1">pkg</span><span class="s3">.</span><span class="s1">name</span><span class="s3">);</span>
+<a name="l15"><span class="ln">15   </span></a>  <span class="s0">if </span><span class="s3">(</span>
+<a name="l16"><span class="ln">16   </span></a>    <span class="s1">alwaysRun </span><span class="s3">||</span>
+<a name="l17"><span class="ln">17   </span></a>    <span class="s3">!</span><span class="s1">lastUpdateCheck </span><span class="s3">||</span>
+<a name="l18"><span class="ln">18   </span></a>    <span class="s1">lastUpdateCheck </span><span class="s3">&lt; </span><span class="s0">new </span><span class="s1">Date</span><span class="s3">().</span><span class="s1">getTime</span><span class="s3">() - </span><span class="s1">updateCheckInterval</span>
+<a name="l19"><span class="ln">19   </span></a>  <span class="s3">) {</span>
+<a name="l20"><span class="ln">20   </span></a>    <span class="s0">const </span><span class="s1">latestVersion </span><span class="s3">= </span><span class="s0">await </span><span class="s1">getDistVersion</span><span class="s3">(</span><span class="s1">pkg</span><span class="s3">.</span><span class="s1">name</span><span class="s3">, </span><span class="s1">distTag</span><span class="s3">);</span>
+<a name="l21"><span class="ln">21   </span></a>    <span class="s1">saveLastUpdate</span><span class="s3">(</span><span class="s1">pkg</span><span class="s3">.</span><span class="s1">name</span><span class="s3">);</span>
+<a name="l22"><span class="ln">22   </span></a>    <span class="s0">if </span><span class="s3">(</span><span class="s1">semver</span><span class="s3">.</span><span class="s1">gt</span><span class="s3">(</span><span class="s1">latestVersion</span><span class="s3">, </span><span class="s1">pkg</span><span class="s3">.</span><span class="s1">version</span><span class="s3">)) {</span>
+<a name="l23"><span class="ln">23   </span></a>      <span class="s0">return </span><span class="s1">latestVersion</span><span class="s3">;</span>
+<a name="l24"><span class="ln">24   </span></a>    <span class="s3">} </span><span class="s0">else if </span><span class="s3">(</span><span class="s1">debug</span><span class="s3">) {</span>
+<a name="l25"><span class="ln">25   </span></a>      <span class="s1">console</span><span class="s3">.</span><span class="s1">error</span><span class="s3">(</span>
+<a name="l26"><span class="ln">26   </span></a>        <span class="s2">`Latest version (</span><span class="s1">$</span><span class="s3">{</span><span class="s1">latestVersion</span><span class="s3">}</span><span class="s2">) not newer than current version (</span><span class="s1">$</span><span class="s3">{</span><span class="s1">pkg</span><span class="s3">.</span><span class="s1">version</span><span class="s3">}</span><span class="s2">)`</span>
+<a name="l27"><span class="ln">27   </span></a>      <span class="s3">);</span>
+<a name="l28"><span class="ln">28   </span></a>    <span class="s3">}</span>
+<a name="l29"><span class="ln">29   </span></a>  <span class="s3">} </span><span class="s0">else if </span><span class="s3">(</span><span class="s1">debug</span><span class="s3">) {</span>
+<a name="l30"><span class="ln">30   </span></a>    <span class="s1">console</span><span class="s3">.</span><span class="s1">error</span><span class="s3">(</span>
+<a name="l31"><span class="ln">31   </span></a>      <span class="s2">`Too recent to check for a new update. simpleUpdateNotifier() interval set to </span><span class="s1">$</span><span class="s3">{</span><span class="s1">updateCheckInterval</span><span class="s3">}</span><span class="s2">ms but only </span><span class="s1">$</span><span class="s3">{</span>
+<a name="l32"><span class="ln">32   </span></a>        <span class="s0">new </span><span class="s1">Date</span><span class="s3">().</span><span class="s1">getTime</span><span class="s3">() - </span><span class="s1">lastUpdateCheck</span>
+<a name="l33"><span class="ln">33   </span></a>      <span class="s3">}</span><span class="s2">ms since last check.`</span>
+<a name="l34"><span class="ln">34   </span></a>    <span class="s3">);</span>
+<a name="l35"><span class="ln">35   </span></a>  <span class="s3">}</span>
+<a name="l36"><span class="ln">36   </span></a>
+<a name="l37"><span class="ln">37   </span></a>  <span class="s0">return false</span><span class="s3">;</span>
+<a name="l38"><span class="ln">38   </span></a><span class="s3">};</span>
+<a name="l39"><span class="ln">39   </span></a>
+<a name="l40"><span class="ln">40   </span></a><span class="s0">export default </span><span class="s1">hasNewVersion</span><span class="s3">;</span>
+<a name="l41"><span class="ln">41   </span></a></pre>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>client.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+client.js</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">// Manually extracted from mysql-5.5.23/include/mysql_com.h</span>
+<a name="l2"><span class="ln">2    </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_LONG_PASSWORD     </span><span class="s2">= </span><span class="s3">1</span><span class="s2">; </span><span class="s0">/* new more secure passwords */</span>
+<a name="l3"><span class="ln">3    </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_FOUND_ROWS        </span><span class="s2">= </span><span class="s3">2</span><span class="s2">; </span><span class="s0">/* Found instead of affected rows */</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_LONG_FLAG         </span><span class="s2">= </span><span class="s3">4</span><span class="s2">; </span><span class="s0">/* Get all column flags */</span>
+<a name="l5"><span class="ln">5    </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_CONNECT_WITH_DB   </span><span class="s2">= </span><span class="s3">8</span><span class="s2">; </span><span class="s0">/* One can specify db on connect */</span>
+<a name="l6"><span class="ln">6    </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_NO_SCHEMA         </span><span class="s2">= </span><span class="s3">16</span><span class="s2">; </span><span class="s0">/* Don't allow database.table.column */</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_COMPRESS          </span><span class="s2">= </span><span class="s3">32</span><span class="s2">; </span><span class="s0">/* Can use compression protocol */</span>
+<a name="l8"><span class="ln">8    </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_ODBC              </span><span class="s2">= </span><span class="s3">64</span><span class="s2">; </span><span class="s0">/* Odbc client */</span>
+<a name="l9"><span class="ln">9    </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_LOCAL_FILES       </span><span class="s2">= </span><span class="s3">128</span><span class="s2">; </span><span class="s0">/* Can use LOAD DATA LOCAL */</span>
+<a name="l10"><span class="ln">10   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_IGNORE_SPACE      </span><span class="s2">= </span><span class="s3">256</span><span class="s2">; </span><span class="s0">/* Ignore spaces before '(' */</span>
+<a name="l11"><span class="ln">11   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_PROTOCOL_41       </span><span class="s2">= </span><span class="s3">512</span><span class="s2">; </span><span class="s0">/* New 4.1 protocol */</span>
+<a name="l12"><span class="ln">12   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_INTERACTIVE       </span><span class="s2">= </span><span class="s3">1024</span><span class="s2">; </span><span class="s0">/* This is an interactive client */</span>
+<a name="l13"><span class="ln">13   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_SSL               </span><span class="s2">= </span><span class="s3">2048</span><span class="s2">; </span><span class="s0">/* Switch to SSL after handshake */</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_IGNORE_SIGPIPE    </span><span class="s2">= </span><span class="s3">4096</span><span class="s2">;    </span><span class="s0">/* IGNORE sigpipes */</span>
+<a name="l15"><span class="ln">15   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_TRANSACTIONS      </span><span class="s2">= </span><span class="s3">8192</span><span class="s2">; </span><span class="s0">/* Client knows about transactions */</span>
+<a name="l16"><span class="ln">16   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_RESERVED          </span><span class="s2">= </span><span class="s3">16384</span><span class="s2">;   </span><span class="s0">/* Old flag for 4.1 protocol  */</span>
+<a name="l17"><span class="ln">17   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_SECURE_CONNECTION </span><span class="s2">= </span><span class="s3">32768</span><span class="s2">;  </span><span class="s0">/* New 4.1 authentication */</span>
+<a name="l18"><span class="ln">18   </span></a>
+<a name="l19"><span class="ln">19   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_MULTI_STATEMENTS </span><span class="s2">= </span><span class="s3">65536</span><span class="s2">; </span><span class="s0">/* Enable/disable multi-stmt support */</span>
+<a name="l20"><span class="ln">20   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_MULTI_RESULTS    </span><span class="s2">= </span><span class="s3">131072</span><span class="s2">; </span><span class="s0">/* Enable/disable multi-results */</span>
+<a name="l21"><span class="ln">21   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_PS_MULTI_RESULTS </span><span class="s2">= </span><span class="s3">262144</span><span class="s2">; </span><span class="s0">/* Multi-results in PS-protocol */</span>
+<a name="l22"><span class="ln">22   </span></a>
+<a name="l23"><span class="ln">23   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_PLUGIN_AUTH </span><span class="s2">= </span><span class="s3">524288</span><span class="s2">; </span><span class="s0">/* Client supports plugin authentication */</span>
+<a name="l24"><span class="ln">24   </span></a>
+<a name="l25"><span class="ln">25   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_SSL_VERIFY_SERVER_CERT </span><span class="s2">= </span><span class="s3">1073741824</span><span class="s2">;</span>
+<a name="l26"><span class="ln">26   </span></a><span class="s1">exports</span><span class="s2">.</span><span class="s1">CLIENT_REMEMBER_OPTIONS       </span><span class="s2">= </span><span class="s3">2147483648</span><span class="s2">;</span>
+<a name="l27"><span class="ln">27   </span></a></pre>
+</body>
+</html>

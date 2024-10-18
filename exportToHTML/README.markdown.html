@@ -1,0 +1,193 @@
+<html>
+<head>
+<title>README.markdown</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #bcbec4;}
+.s2 { color: #56a8f5;}
+.s3 { color: #cf8e6d;}
+.s4 { color: #c77dbb; font-style: italic;}
+.s5 { color: #6aab73;}
+.s6 { color: #57aaf7; font-style: italic;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+README.markdown</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">[![</span><span class="s1">CI Build Status</span><span class="s0">](</span><span class="s2">https://github.com/handlebars-lang/handlebars.js/actions/workflows/ci.yml/badge.svg</span><span class="s0">)](</span><span class="s2">https://github.com/handlebars-lang/handlebars.js/actions/workflows/ci.yml</span><span class="s0">)</span>
+<a name="l2"><span class="ln">2    </span></a><span class="s0">[![</span><span class="s1">jsDelivr Hits</span><span class="s0">](</span><span class="s2">https://data.jsdelivr.com/v1/package/npm/handlebars/badge?style=rounded</span><span class="s0">)](</span><span class="s2">https://www.jsdelivr.com/package/npm/handlebars</span><span class="s0">)</span>
+<a name="l3"><span class="ln">3    </span></a><span class="s0">[![</span><span class="s1">npm downloads</span><span class="s0">](</span><span class="s2">https://badgen.net/npm/dm/handlebars</span><span class="s0">)](</span><span class="s2">https://www.npmjs.com/package/handlebars</span><span class="s0">)</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s0">[![</span><span class="s1">npm version</span><span class="s0">](</span><span class="s2">https://badgen.net/npm/v/handlebars</span><span class="s0">)](</span><span class="s2">https://www.npmjs.com/package/handlebars</span><span class="s0">)</span>
+<a name="l5"><span class="ln">5    </span></a><span class="s0">[![</span><span class="s1">Bundle size</span><span class="s0">](</span><span class="s2">https://badgen.net/bundlephobia/minzip/handlebars?label=minified%20%2B%20gzipped</span><span class="s0">)](</span><span class="s2">https://bundlephobia.com/package/handlebars</span><span class="s0">)</span>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">[![</span><span class="s1">Install size</span><span class="s0">](</span><span class="s2">https://packagephobia.com/badge?p=handlebars</span><span class="s0">)](</span><span class="s2">https://packagephobia.com/result?p=handlebars</span><span class="s0">)</span>
+<a name="l7"><span class="ln">7    </span></a>
+<a name="l8"><span class="ln">8    </span></a><span class="s1">Handlebars.js</span>
+<a name="l9"><span class="ln">9    </span></a><span class="s3">=============</span>
+<a name="l10"><span class="ln">10   </span></a>
+<a name="l11"><span class="ln">11   </span></a><span class="s1">Handlebars.js is an extension to the </span><span class="s0">[</span><span class="s1">Mustache templating</span>
+<a name="l12"><span class="ln">12   </span></a><span class="s1">language</span><span class="s0">](</span><span class="s2">https://mustache.github.io/</span><span class="s0">) </span><span class="s1">created by Chris Wanstrath.</span>
+<a name="l13"><span class="ln">13   </span></a><span class="s1">Handlebars.js and Mustache are both logicless templating languages that</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s1">keep the view and the code separated like we all know they should be.</span>
+<a name="l15"><span class="ln">15   </span></a>
+<a name="l16"><span class="ln">16   </span></a><span class="s1">Checkout the official Handlebars docs site at</span>
+<a name="l17"><span class="ln">17   </span></a><span class="s0">[</span><span class="s2">https://handlebarsjs.com/</span><span class="s0">](</span><span class="s2">https://handlebarsjs.com</span><span class="s0">) </span><span class="s1">and the live demo at </span><span class="s0">[</span><span class="s2">http://tryhandlebarsjs.com/</span><span class="s0">](</span><span class="s2">http://tryhandlebarsjs.com/</span><span class="s0">)</span><span class="s1">.</span>
+<a name="l18"><span class="ln">18   </span></a>
+<a name="l19"><span class="ln">19   </span></a><span class="s1">Installing</span>
+<a name="l20"><span class="ln">20   </span></a><span class="s3">----------</span>
+<a name="l21"><span class="ln">21   </span></a>
+<a name="l22"><span class="ln">22   </span></a><span class="s1">See our </span><span class="s0">[</span><span class="s1">installation documentation</span><span class="s0">](</span><span class="s2">https://handlebarsjs.com/installation/</span><span class="s0">)</span><span class="s1">.</span>
+<a name="l23"><span class="ln">23   </span></a>
+<a name="l24"><span class="ln">24   </span></a><span class="s1">Usage</span>
+<a name="l25"><span class="ln">25   </span></a><span class="s3">-----</span>
+<a name="l26"><span class="ln">26   </span></a><span class="s1">In general, the syntax of Handlebars.js templates is a superset</span>
+<a name="l27"><span class="ln">27   </span></a><span class="s1">of Mustache templates. For basic syntax, check out the </span><span class="s0">[</span><span class="s1">Mustache</span>
+<a name="l28"><span class="ln">28   </span></a><span class="s1">manpage</span><span class="s0">](</span><span class="s2">https://mustache.github.io/mustache.5.html</span><span class="s0">)</span><span class="s1">.</span>
+<a name="l29"><span class="ln">29   </span></a>
+<a name="l30"><span class="ln">30   </span></a><span class="s1">Once you have a template, use the `Handlebars.compile` method to compile</span>
+<a name="l31"><span class="ln">31   </span></a><span class="s1">the template into a function. The generated function takes a context</span>
+<a name="l32"><span class="ln">32   </span></a><span class="s1">argument, which will be used to render the template.</span>
+<a name="l33"><span class="ln">33   </span></a>
+<a name="l34"><span class="ln">34   </span></a><span class="s3">```</span><span class="s4">js</span>
+<a name="l35"><span class="ln">35   </span></a><span class="s5">var source = &quot;&lt;p&gt;Hello, my name is {{name}}. I am from {{hometown}}. I have &quot; +</span>
+<a name="l36"><span class="ln">36   </span></a>             <span class="s5">&quot;{{kids.length}} kids:&lt;/p&gt;&quot; +</span>
+<a name="l37"><span class="ln">37   </span></a>             <span class="s5">&quot;&lt;ul&gt;{{#kids}}&lt;li&gt;{{name}} is {{age}}&lt;/li&gt;{{/kids}}&lt;/ul&gt;&quot;;</span>
+<a name="l38"><span class="ln">38   </span></a><span class="s5">var template = Handlebars.compile(source);</span>
+<a name="l39"><span class="ln">39   </span></a>
+<a name="l40"><span class="ln">40   </span></a><span class="s5">var data = { &quot;name&quot;: &quot;Alan&quot;, &quot;hometown&quot;: &quot;Somewhere, TX&quot;,</span>
+<a name="l41"><span class="ln">41   </span></a>             <span class="s5">&quot;kids&quot;: [{&quot;name&quot;: &quot;Jimmy&quot;, &quot;age&quot;: &quot;12&quot;}, {&quot;name&quot;: &quot;Sally&quot;, &quot;age&quot;: &quot;4&quot;}]};</span>
+<a name="l42"><span class="ln">42   </span></a><span class="s5">var result = template(data);</span>
+<a name="l43"><span class="ln">43   </span></a>
+<a name="l44"><span class="ln">44   </span></a><span class="s5">// Would render:</span>
+<a name="l45"><span class="ln">45   </span></a><span class="s5">// &lt;p&gt;Hello, my name is Alan. I am from Somewhere, TX. I have 2 kids:&lt;/p&gt;</span>
+<a name="l46"><span class="ln">46   </span></a><span class="s5">// &lt;ul&gt;</span>
+<a name="l47"><span class="ln">47   </span></a><span class="s5">//   &lt;li&gt;Jimmy is 12&lt;/li&gt;</span>
+<a name="l48"><span class="ln">48   </span></a><span class="s5">//   &lt;li&gt;Sally is 4&lt;/li&gt;</span>
+<a name="l49"><span class="ln">49   </span></a><span class="s5">// &lt;/ul&gt;</span>
+<a name="l50"><span class="ln">50   </span></a><span class="s3">```</span>
+<a name="l51"><span class="ln">51   </span></a>
+<a name="l52"><span class="ln">52   </span></a><span class="s1">Full documentation and more examples are at </span><span class="s0">[</span><span class="s1">handlebarsjs.com</span><span class="s0">](</span><span class="s2">https://handlebarsjs.com/</span><span class="s0">)</span><span class="s1">.</span>
+<a name="l53"><span class="ln">53   </span></a>
+<a name="l54"><span class="ln">54   </span></a><span class="s1">Precompiling Templates</span>
+<a name="l55"><span class="ln">55   </span></a><span class="s3">----------------------</span>
+<a name="l56"><span class="ln">56   </span></a>
+<a name="l57"><span class="ln">57   </span></a><span class="s1">Handlebars allows templates to be precompiled and included as javascript code rather than the handlebars template allowing for faster startup time. Full details are located </span><span class="s0">[</span><span class="s1">here</span><span class="s0">](</span><span class="s2">https://handlebarsjs.com/installation/precompilation.html</span><span class="s0">)</span><span class="s1">.</span>
+<a name="l58"><span class="ln">58   </span></a>
+<a name="l59"><span class="ln">59   </span></a><span class="s1">Differences Between Handlebars.js and Mustache</span>
+<a name="l60"><span class="ln">60   </span></a><span class="s3">----------------------------------------------</span>
+<a name="l61"><span class="ln">61   </span></a><span class="s1">Handlebars.js adds a couple of additional features to make writing</span>
+<a name="l62"><span class="ln">62   </span></a><span class="s1">templates easier and also changes a tiny detail of how partials work.</span>
+<a name="l63"><span class="ln">63   </span></a>
+<a name="l64"><span class="ln">64   </span></a><span class="s3">- </span><span class="s0">[</span><span class="s1">Nested Paths</span><span class="s0">](</span><span class="s2">https://handlebarsjs.com/guide/expressions.html#path-expressions</span><span class="s0">)</span>
+<a name="l65"><span class="ln">65   </span></a><span class="s3">- </span><span class="s0">[</span><span class="s1">Helpers</span><span class="s0">](</span><span class="s2">https://handlebarsjs.com/guide/expressions.html#helpers</span><span class="s0">)</span>
+<a name="l66"><span class="ln">66   </span></a><span class="s3">- </span><span class="s0">[</span><span class="s1">Block Expressions</span><span class="s0">](</span><span class="s2">https://handlebarsjs.com/guide/block-helpers.html#basic-blocks</span><span class="s0">)</span>
+<a name="l67"><span class="ln">67   </span></a><span class="s3">- </span><span class="s0">[</span><span class="s1">Literal Values</span><span class="s0">](</span><span class="s2">https://handlebarsjs.com/guide/expressions.html#literal-segments</span><span class="s0">)</span>
+<a name="l68"><span class="ln">68   </span></a><span class="s3">- </span><span class="s0">[</span><span class="s1">Delimited Comments</span><span class="s0">](</span><span class="s2">https://handlebarsjs.com/guide/#template-comments</span><span class="s0">)</span>
+<a name="l69"><span class="ln">69   </span></a>
+<a name="l70"><span class="ln">70   </span></a><span class="s1">Block expressions have the same syntax as mustache sections but should not be confused with one another. Sections are akin to an implicit `each` or `with` statement depending on the input data and helpers are explicit pieces of code that are free to implement whatever behavior they like. The </span><span class="s0">[</span><span class="s1">mustache spec</span><span class="s0">](</span><span class="s2">https://mustache.github.io/mustache.5.html</span><span class="s0">) </span><span class="s1">defines the exact behavior of sections. In the case of name conflicts, helpers are given priority.</span>
+<a name="l71"><span class="ln">71   </span></a>
+<a name="l72"><span class="ln">72   </span></a><span class="s3">### </span><span class="s1">Compatibility</span>
+<a name="l73"><span class="ln">73   </span></a>
+<a name="l74"><span class="ln">74   </span></a><span class="s1">There are a few Mustache behaviors that Handlebars does not implement.</span>
+<a name="l75"><span class="ln">75   </span></a><span class="s3">- </span><span class="s1">Handlebars deviates from Mustache slightly in that it does not perform recursive lookup by default. The compile time `compat` flag must be set to enable this functionality. Users should note that there is a performance cost for enabling this flag. The exact cost varies by template, but it's recommended that performance sensitive operations should avoid this mode and instead opt for explicit path references.</span>
+<a name="l76"><span class="ln">76   </span></a><span class="s3">- </span><span class="s1">The optional Mustache-style lambdas are not supported. Instead Handlebars provides its own lambda resolution that follows the behaviors of helpers.</span>
+<a name="l77"><span class="ln">77   </span></a><span class="s3">- </span><span class="s1">Alternative delimiters are not supported.</span>
+<a name="l78"><span class="ln">78   </span></a>
+<a name="l79"><span class="ln">79   </span></a>
+<a name="l80"><span class="ln">80   </span></a><span class="s1">Supported Environments</span>
+<a name="l81"><span class="ln">81   </span></a><span class="s3">----------------------</span>
+<a name="l82"><span class="ln">82   </span></a>
+<a name="l83"><span class="ln">83   </span></a><span class="s1">Handlebars has been designed to work in any ECMAScript 3 environment. This includes</span>
+<a name="l84"><span class="ln">84   </span></a>
+<a name="l85"><span class="ln">85   </span></a><span class="s3">- </span><span class="s1">Node.js</span>
+<a name="l86"><span class="ln">86   </span></a><span class="s3">- </span><span class="s1">Chrome</span>
+<a name="l87"><span class="ln">87   </span></a><span class="s3">- </span><span class="s1">Firefox</span>
+<a name="l88"><span class="ln">88   </span></a><span class="s3">- </span><span class="s1">Safari 5+</span>
+<a name="l89"><span class="ln">89   </span></a><span class="s3">- </span><span class="s1">Opera 11+</span>
+<a name="l90"><span class="ln">90   </span></a><span class="s3">- </span><span class="s1">IE 6+</span>
+<a name="l91"><span class="ln">91   </span></a>
+<a name="l92"><span class="ln">92   </span></a><span class="s1">Older versions and other runtimes are likely to work but have not been formally</span>
+<a name="l93"><span class="ln">93   </span></a><span class="s1">tested. The compiler requires `JSON.stringify` to be implemented natively or via a polyfill. If using the precompiler this is not necessary.</span>
+<a name="l94"><span class="ln">94   </span></a>
+<a name="l95"><span class="ln">95   </span></a><span class="s1">Performance</span>
+<a name="l96"><span class="ln">96   </span></a><span class="s3">-----------</span>
+<a name="l97"><span class="ln">97   </span></a>
+<a name="l98"><span class="ln">98   </span></a><span class="s1">In a rough performance test, precompiled Handlebars.js templates </span><span class="s0">(</span><span class="s1">in</span>
+<a name="l99"><span class="ln">99   </span></a><span class="s1">the original version of Handlebars.js</span><span class="s0">) </span><span class="s1">rendered in about half the</span>
+<a name="l100"><span class="ln">100  </span></a><span class="s1">time of Mustache templates. It would be a shame if it were any other</span>
+<a name="l101"><span class="ln">101  </span></a><span class="s1">way, since they were precompiled, but the difference in architecture</span>
+<a name="l102"><span class="ln">102  </span></a><span class="s1">does have some big performance advantages. Justin Marney, a.k.a.</span>
+<a name="l103"><span class="ln">103  </span></a><span class="s0">[</span><span class="s1">gotascii</span><span class="s0">](</span><span class="s2">http://github.com/gotascii</span><span class="s0">)</span><span class="s1">, confirmed that with an</span>
+<a name="l104"><span class="ln">104  </span></a><span class="s0">[</span><span class="s1">independent test</span><span class="s0">](</span><span class="s2">http://sorescode.com/2010/09/12/benchmarks.html</span><span class="s0">)</span><span class="s1">. The</span>
+<a name="l105"><span class="ln">105  </span></a><span class="s1">rewritten Handlebars </span><span class="s0">(</span><span class="s1">current version</span><span class="s0">) </span><span class="s1">is faster than the old version,</span>
+<a name="l106"><span class="ln">106  </span></a><span class="s1">with many performance tests being 5 to 7 times faster than the Mustache equivalent.</span>
+<a name="l107"><span class="ln">107  </span></a>
+<a name="l108"><span class="ln">108  </span></a>
+<a name="l109"><span class="ln">109  </span></a><span class="s1">Upgrading</span>
+<a name="l110"><span class="ln">110  </span></a><span class="s3">---------</span>
+<a name="l111"><span class="ln">111  </span></a>
+<a name="l112"><span class="ln">112  </span></a><span class="s1">See </span><span class="s0">[</span><span class="s1">release-notes.md</span><span class="s0">](</span><span class="s2">https://github.com/handlebars-lang/handlebars.js/blob/master/release-notes.md</span><span class="s0">) </span><span class="s1">for upgrade notes.</span>
+<a name="l113"><span class="ln">113  </span></a>
+<a name="l114"><span class="ln">114  </span></a><span class="s1">Known Issues</span>
+<a name="l115"><span class="ln">115  </span></a><span class="s3">------------</span>
+<a name="l116"><span class="ln">116  </span></a>
+<a name="l117"><span class="ln">117  </span></a><span class="s1">See </span><span class="s0">[</span><span class="s1">FAQ.md</span><span class="s0">](</span><span class="s2">https://github.com/handlebars-lang/handlebars.js/blob/master/FAQ.md</span><span class="s0">) </span><span class="s1">for known issues and common pitfalls.</span>
+<a name="l118"><span class="ln">118  </span></a>
+<a name="l119"><span class="ln">119  </span></a>
+<a name="l120"><span class="ln">120  </span></a><span class="s1">Handlebars in the Wild</span>
+<a name="l121"><span class="ln">121  </span></a><span class="s3">----------------------</span>
+<a name="l122"><span class="ln">122  </span></a>
+<a name="l123"><span class="ln">123  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">Assemble</span><span class="s0">](</span><span class="s2">http://assemble.io</span><span class="s0">)</span><span class="s1">, by </span><span class="s0">[</span><span class="s1">@jonschlinkert</span><span class="s0">](</span><span class="s2">https://github.com/jonschlinkert</span><span class="s0">)</span>
+<a name="l124"><span class="ln">124  </span></a>  <span class="s1">and </span><span class="s0">[</span><span class="s1">@doowb</span><span class="s0">](</span><span class="s2">https://github.com/doowb</span><span class="s0">)</span><span class="s1">, is a static site generator that uses Handlebars.js</span>
+<a name="l125"><span class="ln">125  </span></a>  <span class="s1">as its template engine.</span>
+<a name="l126"><span class="ln">126  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">Cory</span><span class="s0">](</span><span class="s2">https://github.com/leo/cory</span><span class="s0">)</span><span class="s1">, by </span><span class="s0">[</span><span class="s1">@leo</span><span class="s0">](</span><span class="s2">https://github.com/leo</span><span class="s0">)</span><span class="s1">, is another tiny static site generator</span>
+<a name="l127"><span class="ln">127  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">CoSchedule</span><span class="s0">](</span><span class="s2">http://coschedule.com</span><span class="s0">) </span><span class="s1">An editorial calendar for WordPress that uses Handlebars.js</span>
+<a name="l128"><span class="ln">128  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">dashbars</span><span class="s0">](</span><span class="s2">https://github.com/pismute/dashbars</span><span class="s0">) </span><span class="s1">A modern helper library for Handlebars.js.</span>
+<a name="l129"><span class="ln">129  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">Ember.js</span><span class="s0">](</span><span class="s2">http://www.emberjs.com</span><span class="s0">) </span><span class="s1">makes Handlebars.js the primary way to</span>
+<a name="l130"><span class="ln">130  </span></a>  <span class="s1">structure your views, also with automatic data binding support.</span>
+<a name="l131"><span class="ln">131  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">Ghost</span><span class="s0">](</span><span class="s2">https://ghost.org/</span><span class="s0">) </span><span class="s1">Just a blogging platform.</span>
+<a name="l132"><span class="ln">132  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">handlebars_assets</span><span class="s0">](</span><span class="s2">http://github.com/leshill/handlebars_assets</span><span class="s0">): </span><span class="s1">A Rails Asset Pipeline gem</span>
+<a name="l133"><span class="ln">133  </span></a>  <span class="s1">from Les Hill </span><span class="s0">(</span><span class="s1">@leshill</span><span class="s0">)</span><span class="s1">.</span>
+<a name="l134"><span class="ln">134  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">handlebars-helpers</span><span class="s0">](</span><span class="s2">https://github.com/assemble/handlebars-helpers</span><span class="s0">) </span><span class="s1">is an extensive library</span>
+<a name="l135"><span class="ln">135  </span></a>  <span class="s1">with 100+ handlebars helpers.</span>
+<a name="l136"><span class="ln">136  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">handlebars-layouts</span><span class="s0">](</span><span class="s2">https://github.com/shannonmoeller/handlebars-layouts</span><span class="s0">) </span><span class="s1">is a set of helpers which implement extendible and embeddable layout blocks as seen in other popular templating languages.</span>
+<a name="l137"><span class="ln">137  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">hbs</span><span class="s0">](</span><span class="s2">http://github.com/donpark/hbs</span><span class="s0">): </span><span class="s1">An Express.js view engine adapter for Handlebars.js,</span>
+<a name="l138"><span class="ln">138  </span></a>  <span class="s1">from Don Park.</span>
+<a name="l139"><span class="ln">139  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">koa-hbs</span><span class="s0">](</span><span class="s2">https://github.com/jwilm/koa-hbs</span><span class="s0">): [</span><span class="s1">koa</span><span class="s0">](</span><span class="s2">https://github.com/koajs/koa</span><span class="s0">) </span><span class="s1">generator based</span>
+<a name="l140"><span class="ln">140  </span></a>  <span class="s1">renderer for Handlebars.js.</span>
+<a name="l141"><span class="ln">141  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">jblotus</span><span class="s0">](</span><span class="s2">http://github.com/jblotus</span><span class="s0">) </span><span class="s1">created </span><span class="s0">[</span><span class="s2">http://tryhandlebarsjs.com</span><span class="s0">](</span><span class="s2">http://tryhandlebarsjs.com</span><span class="s0">)</span>
+<a name="l142"><span class="ln">142  </span></a>  <span class="s1">for anyone who would like to try out Handlebars.js in their browser.</span>
+<a name="l143"><span class="ln">143  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">jQuery plugin</span><span class="s0">](</span><span class="s2">http://71104.github.io/jquery-handlebars/</span><span class="s0">): </span><span class="s1">allows you to use</span>
+<a name="l144"><span class="ln">144  </span></a>  <span class="s1">Handlebars.js with </span><span class="s0">[</span><span class="s1">jQuery</span><span class="s0">](</span><span class="s2">http://jquery.com/</span><span class="s0">)</span><span class="s1">.</span>
+<a name="l145"><span class="ln">145  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">Lumbar</span><span class="s0">](</span><span class="s2">http://walmartlabs.github.io/lumbar</span><span class="s0">) </span><span class="s1">provides easy module-based template management for</span>
+<a name="l146"><span class="ln">146  </span></a>  <span class="s1">handlebars projects.</span>
+<a name="l147"><span class="ln">147  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">Marionette.Handlebars</span><span class="s0">](</span><span class="s2">https://github.com/hashchange/marionette.handlebars</span><span class="s0">) </span><span class="s1">adds support for Handlebars and Mustache templates to Marionette.</span>
+<a name="l148"><span class="ln">148  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">sammy.js</span><span class="s0">](</span><span class="s2">http://github.com/quirkey/sammy</span><span class="s0">) </span><span class="s1">by Aaron Quint, a.k.a. quirkey,</span>
+<a name="l149"><span class="ln">149  </span></a>  <span class="s1">supports Handlebars.js as one of its template plugins.</span>
+<a name="l150"><span class="ln">150  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">SproutCore</span><span class="s0">](</span><span class="s2">http://www.sproutcore.com</span><span class="s0">) </span><span class="s1">uses Handlebars.js as its main</span>
+<a name="l151"><span class="ln">151  </span></a>  <span class="s1">templating engine, extending it with automatic data binding support.</span>
+<a name="l152"><span class="ln">152  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">YUI</span><span class="s0">](</span><span class="s2">http://yuilibrary.com/yui/docs/handlebars/</span><span class="s0">) </span><span class="s1">implements a port of handlebars</span>
+<a name="l153"><span class="ln">153  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">Swag</span><span class="s0">](</span><span class="s2">https://github.com/elving/swag</span><span class="s0">) </span><span class="s1">by </span><span class="s0">[</span><span class="s1">@elving</span><span class="s0">](</span><span class="s2">https://github.com/elving</span><span class="s0">) </span><span class="s1">is a growing collection of helpers for handlebars.js. Give your handlebars.js templates some swag son</span><span class="s0">!</span>
+<a name="l154"><span class="ln">154  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">DOMBars</span><span class="s0">](</span><span class="s2">https://github.com/blakeembrey/dombars</span><span class="s0">) </span><span class="s1">is a DOM-based templating engine built on the Handlebars parser and runtime </span><span class="s0">**</span><span class="s1">DEPRECATED</span><span class="s0">**</span>
+<a name="l155"><span class="ln">155  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">promised-handlebars</span><span class="s0">](</span><span class="s2">https://github.com/nknapp/promised-handlebars</span><span class="s0">) </span><span class="s1">is a wrapper for Handlebars that allows helpers to return Promises.</span>
+<a name="l156"><span class="ln">156  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">just-handlebars-helpers</span><span class="s0">](</span><span class="s2">https://github.com/leapfrogtechnology/just-handlebars-helpers</span><span class="s0">) </span><span class="s1">A fully tested lightweight package with common Handlebars helpers.</span>
+<a name="l157"><span class="ln">157  </span></a>
+<a name="l158"><span class="ln">158  </span></a><span class="s1">External Resources</span>
+<a name="l159"><span class="ln">159  </span></a><span class="s3">------------------</span>
+<a name="l160"><span class="ln">160  </span></a>
+<a name="l161"><span class="ln">161  </span></a><span class="s3">* </span><span class="s0">[</span><span class="s1">Gist about Synchronous and asynchronous loading of external handlebars templates</span><span class="s0">](</span><span class="s2">https://gist.github.com/2287070</span><span class="s0">)</span>
+<a name="l162"><span class="ln">162  </span></a>
+<a name="l163"><span class="ln">163  </span></a><span class="s1">Have a project using Handlebars? Send us a </span><span class="s0">[</span><span class="s1">pull request</span><span class="s0">][</span><span class="s1">pull-request</span><span class="s0">]!</span>
+<a name="l164"><span class="ln">164  </span></a>
+<a name="l165"><span class="ln">165  </span></a><span class="s1">License</span>
+<a name="l166"><span class="ln">166  </span></a><span class="s3">-------</span>
+<a name="l167"><span class="ln">167  </span></a><span class="s1">Handlebars.js is released under the MIT license.</span>
+<a name="l168"><span class="ln">168  </span></a>
+<a name="l169"><span class="ln">169  </span></a><span class="s3">[pull-request]</span><span class="s0">: </span><span class="s6">https://github.com/handlebars-lang/handlebars.js/pull/new/master</span>
+<a name="l170"><span class="ln">170  </span></a></pre>
+</body>
+</html>

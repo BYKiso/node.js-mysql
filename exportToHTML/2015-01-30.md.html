@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>2015-01-30.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #56a8f5;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+2015-01-30.md</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0"># </span><span class="s2">streams WG Meeting 2015-01-30</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s0">## </span><span class="s2">Links</span>
+<a name="l4"><span class="ln">4    </span></a>
+<a name="l5"><span class="ln">5    </span></a><span class="s0">* </span><span class="s1">**</span><span class="s2">Google Hangouts Video</span><span class="s1">**: </span><span class="s3">http://www.youtube.com/watch?v=I9nDOSGfwZg</span>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">* </span><span class="s1">**</span><span class="s2">GitHub Issue</span><span class="s1">**: </span><span class="s3">https://github.com/iojs/readable-stream/issues/106</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s0">* </span><span class="s1">**</span><span class="s2">Original Minutes Google Doc</span><span class="s1">**: </span><span class="s3">https://docs.google.com/document/d/17aTgLnjMXIrfjgNaTUnHQO7m3xgzHR2VXBTmi03Qii4/</span>
+<a name="l8"><span class="ln">8    </span></a>
+<a name="l9"><span class="ln">9    </span></a><span class="s0">## </span><span class="s2">Agenda</span>
+<a name="l10"><span class="ln">10   </span></a>
+<a name="l11"><span class="ln">11   </span></a><span class="s2">Extracted from </span><span class="s3">https://github.com/iojs/readable-stream/labels/wg-agenda </span><span class="s2">prior to meeting.</span>
+<a name="l12"><span class="ln">12   </span></a>
+<a name="l13"><span class="ln">13   </span></a><span class="s0">* </span><span class="s2">adopt a charter </span><span class="s1">[</span><span class="s2">#105</span><span class="s1">](</span><span class="s3">https://github.com/iojs/readable-stream/issues/105</span><span class="s1">)</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s0">* </span><span class="s2">release and versioning strategy </span><span class="s1">[</span><span class="s2">#101</span><span class="s1">](</span><span class="s3">https://github.com/iojs/readable-stream/issues/101</span><span class="s1">)</span>
+<a name="l15"><span class="ln">15   </span></a><span class="s0">* </span><span class="s2">simpler stream creation </span><span class="s1">[</span><span class="s2">#102</span><span class="s1">](</span><span class="s3">https://github.com/iojs/readable-stream/issues/102</span><span class="s1">)</span>
+<a name="l16"><span class="ln">16   </span></a><span class="s0">* </span><span class="s2">proposal</span><span class="s1">: </span><span class="s2">deprecate implicit flowing of streams </span><span class="s1">[</span><span class="s2">#99</span><span class="s1">](</span><span class="s3">https://github.com/iojs/readable-stream/issues/99</span><span class="s1">)</span>
+<a name="l17"><span class="ln">17   </span></a>
+<a name="l18"><span class="ln">18   </span></a><span class="s0">## </span><span class="s2">Minutes</span>
+<a name="l19"><span class="ln">19   </span></a>
+<a name="l20"><span class="ln">20   </span></a><span class="s0">### </span><span class="s2">adopt a charter</span>
+<a name="l21"><span class="ln">21   </span></a>
+<a name="l22"><span class="ln">22   </span></a><span class="s0">* </span><span class="s2">group</span><span class="s1">: </span><span class="s2">+1's all around</span>
+<a name="l23"><span class="ln">23   </span></a>
+<a name="l24"><span class="ln">24   </span></a><span class="s0">### </span><span class="s2">What versioning scheme should be adopted?</span>
+<a name="l25"><span class="ln">25   </span></a><span class="s0">* </span><span class="s2">group</span><span class="s1">: </span><span class="s2">+1’s 3.0.0</span>
+<a name="l26"><span class="ln">26   </span></a><span class="s0">* </span><span class="s2">domenic+group</span><span class="s1">: </span><span class="s2">pulling in patches from other sources where appropriate</span>
+<a name="l27"><span class="ln">27   </span></a><span class="s0">* </span><span class="s2">mikeal</span><span class="s1">: </span><span class="s2">version independently, suggesting versions for io.js</span>
+<a name="l28"><span class="ln">28   </span></a><span class="s0">* </span><span class="s2">mikeal+domenic</span><span class="s1">: </span><span class="s2">work with TC to notify in advance of changes</span>
+<a name="l29"><span class="ln">29   </span></a><span class="s2">simpler stream creation</span>
+<a name="l30"><span class="ln">30   </span></a>
+<a name="l31"><span class="ln">31   </span></a><span class="s0">### </span><span class="s2">streamline creation of streams</span>
+<a name="l32"><span class="ln">32   </span></a><span class="s0">* </span><span class="s2">sam</span><span class="s1">: </span><span class="s2">streamline creation of streams</span>
+<a name="l33"><span class="ln">33   </span></a><span class="s0">* </span><span class="s2">domenic</span><span class="s1">: </span><span class="s2">nice simple solution posted</span>
+<a name="l34"><span class="ln">34   </span></a>  <span class="s2">but, we lose the opportunity to change the model</span>
+<a name="l35"><span class="ln">35   </span></a>  <span class="s2">may not be backwards incompatible </span><span class="s1">(</span><span class="s2">double check keys</span><span class="s1">)</span>
+<a name="l36"><span class="ln">36   </span></a>
+<a name="l37"><span class="ln">37   </span></a>  <span class="s1">**</span><span class="s2">action item</span><span class="s1">:** </span><span class="s2">domenic will check</span>
+<a name="l38"><span class="ln">38   </span></a>
+<a name="l39"><span class="ln">39   </span></a><span class="s0">### </span><span class="s2">remove implicit flowing of streams on</span><span class="s1">(</span><span class="s2">‘data’</span><span class="s1">)</span>
+<a name="l40"><span class="ln">40   </span></a><span class="s0">* </span><span class="s2">add isFlowing / isPaused</span>
+<a name="l41"><span class="ln">41   </span></a><span class="s0">* </span><span class="s2">mikeal</span><span class="s1">: </span><span class="s2">worrying that we’re documenting polyfill methods – confuses users</span>
+<a name="l42"><span class="ln">42   </span></a><span class="s0">* </span><span class="s2">domenic</span><span class="s1">: </span><span class="s2">more reflective API is probably good, with warning labels for users</span>
+<a name="l43"><span class="ln">43   </span></a><span class="s0">* </span><span class="s2">new section for mad scientists </span><span class="s1">(</span><span class="s2">reflective stream access</span><span class="s1">)</span>
+<a name="l44"><span class="ln">44   </span></a><span class="s0">* </span><span class="s2">calvin</span><span class="s1">: </span><span class="s2">name the “third state”</span>
+<a name="l45"><span class="ln">45   </span></a><span class="s0">* </span><span class="s2">mikeal</span><span class="s1">: </span><span class="s2">maybe borrow the name from whatwg?</span>
+<a name="l46"><span class="ln">46   </span></a><span class="s0">* </span><span class="s2">domenic</span><span class="s1">: </span><span class="s2">we’re missing the “third state”</span>
+<a name="l47"><span class="ln">47   </span></a><span class="s0">* </span><span class="s2">consensus</span><span class="s1">: </span><span class="s2">kind of difficult to name the third state</span>
+<a name="l48"><span class="ln">48   </span></a><span class="s0">* </span><span class="s2">mikeal</span><span class="s1">: </span><span class="s2">figure out differences in states / compat</span>
+<a name="l49"><span class="ln">49   </span></a><span class="s0">* </span><span class="s2">mathias</span><span class="s1">: </span><span class="s2">always flow on data – eliminates third state</span>
+<a name="l50"><span class="ln">50   </span></a>  <span class="s0">* </span><span class="s2">explore what it breaks</span>
+<a name="l51"><span class="ln">51   </span></a>
+<a name="l52"><span class="ln">52   </span></a><span class="s1">**</span><span class="s2">action items</span><span class="s1">:**</span>
+<a name="l53"><span class="ln">53   </span></a><span class="s0">* </span><span class="s2">ask isaac for ability to list packages by what public io.js APIs they use </span><span class="s1">(</span><span class="s2">esp. Stream</span><span class="s1">)</span>
+<a name="l54"><span class="ln">54   </span></a><span class="s0">* </span><span class="s2">ask rod/build for infrastructure</span>
+<a name="l55"><span class="ln">55   </span></a><span class="s0">* </span><span class="s1">**</span><span class="s2">chris</span><span class="s1">**: </span><span class="s2">explore the “flow on data” approach</span>
+<a name="l56"><span class="ln">56   </span></a><span class="s0">* </span><span class="s2">add isPaused/isFlowing</span>
+<a name="l57"><span class="ln">57   </span></a><span class="s0">* </span><span class="s2">add new docs section</span>
+<a name="l58"><span class="ln">58   </span></a><span class="s0">* </span><span class="s2">move isPaused to that section</span>
+<a name="l59"><span class="ln">59   </span></a>
+<a name="l60"><span class="ln">60   </span></a>
+<a name="l61"><span class="ln">61   </span></a></pre>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>inspect.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6aab73;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #2aacb8;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+inspect.js</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">'use strict'</span><span class="s1">;</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s3">/* eslint-env browser */</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s4">var </span><span class="s2">inspect </span><span class="s1">= </span><span class="s2">require</span><span class="s1">(</span><span class="s0">'../'</span><span class="s1">);</span>
+<a name="l5"><span class="ln">5    </span></a>
+<a name="l6"><span class="ln">6    </span></a><span class="s4">var </span><span class="s2">d </span><span class="s1">= </span><span class="s2">document</span><span class="s1">.</span><span class="s2">createElement</span><span class="s1">(</span><span class="s0">'div'</span><span class="s1">);</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s2">d</span><span class="s1">.</span><span class="s2">setAttribute</span><span class="s1">(</span><span class="s0">'id'</span><span class="s1">, </span><span class="s0">'beep'</span><span class="s1">);</span>
+<a name="l8"><span class="ln">8    </span></a><span class="s2">d</span><span class="s1">.</span><span class="s2">innerHTML </span><span class="s1">= </span><span class="s0">'&lt;b&gt;wooo&lt;/b&gt;&lt;i&gt;iiiii&lt;/i&gt;'</span><span class="s1">;</span>
+<a name="l9"><span class="ln">9    </span></a>
+<a name="l10"><span class="ln">10   </span></a><span class="s2">console</span><span class="s1">.</span><span class="s2">log</span><span class="s1">(</span><span class="s2">inspect</span><span class="s1">([</span><span class="s2">d</span><span class="s1">, { </span><span class="s2">a</span><span class="s1">: </span><span class="s5">3</span><span class="s1">, </span><span class="s2">b</span><span class="s1">: </span><span class="s5">4</span><span class="s1">, </span><span class="s2">c</span><span class="s1">: [</span><span class="s5">5</span><span class="s1">, </span><span class="s5">6</span><span class="s1">, [</span><span class="s5">7</span><span class="s1">, [</span><span class="s5">8</span><span class="s1">, [</span><span class="s5">9</span><span class="s1">]]]] }]));</span>
+<a name="l11"><span class="ln">11   </span></a></pre>
+</body>
+</html>

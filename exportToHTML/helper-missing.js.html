@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>helper-missing.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6aab73;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #cf8e6d;}
+.s4 { color: #7a7e85;}
+.s5 { color: #2aacb8;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+helper-missing.js</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">'use strict'</span><span class="s1">;</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s2">exports</span><span class="s1">.</span><span class="s2">__esModule </span><span class="s1">= </span><span class="s3">true</span><span class="s1">;</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s4">// istanbul ignore next</span>
+<a name="l5"><span class="ln">5    </span></a>
+<a name="l6"><span class="ln">6    </span></a><span class="s3">function </span><span class="s2">_interopRequireDefault</span><span class="s1">(</span><span class="s2">obj</span><span class="s1">) { </span><span class="s3">return </span><span class="s2">obj </span><span class="s1">&amp;&amp; </span><span class="s2">obj</span><span class="s1">.</span><span class="s2">__esModule </span><span class="s1">? </span><span class="s2">obj </span><span class="s1">: { </span><span class="s0">'default'</span><span class="s1">: </span><span class="s2">obj </span><span class="s1">}; }</span>
+<a name="l7"><span class="ln">7    </span></a>
+<a name="l8"><span class="ln">8    </span></a><span class="s3">var </span><span class="s2">_exception </span><span class="s1">= </span><span class="s2">require</span><span class="s1">(</span><span class="s0">'../exception'</span><span class="s1">);</span>
+<a name="l9"><span class="ln">9    </span></a>
+<a name="l10"><span class="ln">10   </span></a><span class="s3">var </span><span class="s2">_exception2 </span><span class="s1">= </span><span class="s2">_interopRequireDefault</span><span class="s1">(</span><span class="s2">_exception</span><span class="s1">);</span>
+<a name="l11"><span class="ln">11   </span></a>
+<a name="l12"><span class="ln">12   </span></a><span class="s2">exports</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">] = </span><span class="s3">function </span><span class="s1">(</span><span class="s2">instance</span><span class="s1">) {</span>
+<a name="l13"><span class="ln">13   </span></a>  <span class="s2">instance</span><span class="s1">.</span><span class="s2">registerHelper</span><span class="s1">(</span><span class="s0">'helperMissing'</span><span class="s1">, </span><span class="s3">function </span><span class="s1">() </span><span class="s4">/* [args, ]options */</span><span class="s1">{</span>
+<a name="l14"><span class="ln">14   </span></a>    <span class="s3">if </span><span class="s1">(</span><span class="s2">arguments</span><span class="s1">.</span><span class="s2">length </span><span class="s1">=== </span><span class="s5">1</span><span class="s1">) {</span>
+<a name="l15"><span class="ln">15   </span></a>      <span class="s4">// A missing field in a {{foo}} construct.</span>
+<a name="l16"><span class="ln">16   </span></a>      <span class="s3">return </span><span class="s2">undefined</span><span class="s1">;</span>
+<a name="l17"><span class="ln">17   </span></a>    <span class="s1">} </span><span class="s3">else </span><span class="s1">{</span>
+<a name="l18"><span class="ln">18   </span></a>      <span class="s4">// Someone is actually trying to call something, blow up.</span>
+<a name="l19"><span class="ln">19   </span></a>      <span class="s3">throw new </span><span class="s2">_exception2</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">](</span><span class="s0">'Missing helper: &quot;' </span><span class="s1">+ </span><span class="s2">arguments</span><span class="s1">[</span><span class="s2">arguments</span><span class="s1">.</span><span class="s2">length </span><span class="s1">- </span><span class="s5">1</span><span class="s1">].</span><span class="s2">name </span><span class="s1">+ </span><span class="s0">'&quot;'</span><span class="s1">);</span>
+<a name="l20"><span class="ln">20   </span></a>    <span class="s1">}</span>
+<a name="l21"><span class="ln">21   </span></a>  <span class="s1">});</span>
+<a name="l22"><span class="ln">22   </span></a><span class="s1">};</span>
+<a name="l23"><span class="ln">23   </span></a>
+<a name="l24"><span class="ln">24   </span></a><span class="s2">module</span><span class="s1">.</span><span class="s2">exports </span><span class="s1">= </span><span class="s2">exports</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">];</span>
+<a name="l25"><span class="ln">25   </span></a><span class="s4">//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvaGVscGVyLW1pc3NpbmcuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozt5QkFBc0IsY0FBYzs7OztxQkFFckIsVUFBUyxRQUFRLEVBQUU7QUFDaEMsVUFBUSxDQUFDLGNBQWMsQ0FBQyxlQUFlLEVBQUUsaUNBQWdDO0FBQ3ZFLFFBQUksU0FBUyxDQUFDLE1BQU0sS0FBSyxDQUFDLEVBQUU7O0FBRTFCLGFBQU8sU0FBUyxDQUFDO0tBQ2xCLE1BQU07O0FBRUwsWUFBTSwyQkFDSixtQkFBbUIsR0FBRyxTQUFTLENBQUMsU0FBUyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsQ0FBQyxJQUFJLEdBQUcsR0FBRyxDQUNqRSxDQUFDO0tBQ0g7R0FDRixDQUFDLENBQUM7Q0FDSiIsImZpbGUiOiJoZWxwZXItbWlzc2luZy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBFeGNlcHRpb24gZnJvbSAnLi4vZXhjZXB0aW9uJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2hlbHBlck1pc3NpbmcnLCBmdW5jdGlvbigvKiBbYXJncywgXW9wdGlvbnMgKi8pIHtcbiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCA9PT0gMSkge1xuICAgICAgLy8gQSBtaXNzaW5nIGZpZWxkIGluIGEge3tmb299fSBjb25zdHJ1Y3QuXG4gICAgICByZXR1cm4gdW5kZWZpbmVkO1xuICAgIH0gZWxzZSB7XG4gICAgICAvLyBTb21lb25lIGlzIGFjdHVhbGx5IHRyeWluZyB0byBjYWxsIHNvbWV0aGluZywgYmxvdyB1cC5cbiAgICAgIHRocm93IG5ldyBFeGNlcHRpb24oXG4gICAgICAgICdNaXNzaW5nIGhlbHBlcjogXCInICsgYXJndW1lbnRzW2FyZ3VtZW50cy5sZW5ndGggLSAxXS5uYW1lICsgJ1wiJ1xuICAgICAgKTtcbiAgICB9XG4gIH0pO1xufVxuIl19</span>
+<a name="l26"><span class="ln">26   </span></a></pre>
+</body>
+</html>

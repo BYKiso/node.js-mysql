@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>create-new-lookup-object.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6aab73;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #cf8e6d;}
+.s4 { color: #5f826b; font-style: italic;}
+.s5 { color: #67a37c; font-style: italic;}
+.s6 { color: #2aacb8;}
+.s7 { color: #7a7e85;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+create-new-lookup-object.js</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">'use strict'</span><span class="s1">;</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s2">exports</span><span class="s1">.</span><span class="s2">__esModule </span><span class="s1">= </span><span class="s3">true</span><span class="s1">;</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s2">exports</span><span class="s1">.</span><span class="s2">createNewLookupObject </span><span class="s1">= </span><span class="s2">createNewLookupObject</span><span class="s1">;</span>
+<a name="l5"><span class="ln">5    </span></a>
+<a name="l6"><span class="ln">6    </span></a><span class="s3">var </span><span class="s2">_utils </span><span class="s1">= </span><span class="s2">require</span><span class="s1">(</span><span class="s0">'../utils'</span><span class="s1">);</span>
+<a name="l7"><span class="ln">7    </span></a>
+<a name="l8"><span class="ln">8    </span></a><span class="s4">/**</span>
+<a name="l9"><span class="ln">9    </span></a> <span class="s4">* Create a new object with &quot;null&quot;-prototype to avoid truthy results on prototype properties.</span>
+<a name="l10"><span class="ln">10   </span></a> <span class="s4">* The resulting object can be used with &quot;object[property]&quot; to check if a property exists</span>
+<a name="l11"><span class="ln">11   </span></a> <span class="s4">* </span><span class="s5">@param </span><span class="s4">{...object} sources a varargs parameter of source objects that will be merged</span>
+<a name="l12"><span class="ln">12   </span></a> <span class="s4">* </span><span class="s5">@returns </span><span class="s4">{object}</span>
+<a name="l13"><span class="ln">13   </span></a> <span class="s4">*/</span>
+<a name="l14"><span class="ln">14   </span></a>
+<a name="l15"><span class="ln">15   </span></a><span class="s3">function </span><span class="s2">createNewLookupObject</span><span class="s1">() {</span>
+<a name="l16"><span class="ln">16   </span></a>  <span class="s3">for </span><span class="s1">(</span><span class="s3">var </span><span class="s2">_len </span><span class="s1">= </span><span class="s2">arguments</span><span class="s1">.</span><span class="s2">length</span><span class="s1">, </span><span class="s2">sources </span><span class="s1">= </span><span class="s2">Array</span><span class="s1">(</span><span class="s2">_len</span><span class="s1">), </span><span class="s2">_key </span><span class="s1">= </span><span class="s6">0</span><span class="s1">; </span><span class="s2">_key </span><span class="s1">&lt; </span><span class="s2">_len</span><span class="s1">; </span><span class="s2">_key</span><span class="s1">++) {</span>
+<a name="l17"><span class="ln">17   </span></a>    <span class="s2">sources</span><span class="s1">[</span><span class="s2">_key</span><span class="s1">] = </span><span class="s2">arguments</span><span class="s1">[</span><span class="s2">_key</span><span class="s1">];</span>
+<a name="l18"><span class="ln">18   </span></a>  <span class="s1">}</span>
+<a name="l19"><span class="ln">19   </span></a>
+<a name="l20"><span class="ln">20   </span></a>  <span class="s3">return </span><span class="s2">_utils</span><span class="s1">.</span><span class="s2">extend</span><span class="s1">.</span><span class="s2">apply</span><span class="s1">(</span><span class="s2">undefined</span><span class="s1">, [</span><span class="s2">Object</span><span class="s1">.</span><span class="s2">create</span><span class="s1">(</span><span class="s3">null</span><span class="s1">)].</span><span class="s2">concat</span><span class="s1">(</span><span class="s2">sources</span><span class="s1">));</span>
+<a name="l21"><span class="ln">21   </span></a><span class="s1">}</span>
+<a name="l22"><span class="ln">22   </span></a><span class="s7">//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2ludGVybmFsL2NyZWF0ZS1uZXctbG9va3VwLW9iamVjdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztxQkFBdUIsVUFBVTs7Ozs7Ozs7O0FBUTFCLFNBQVMscUJBQXFCLEdBQWE7b0NBQVQsT0FBTztBQUFQLFdBQU87OztBQUM5QyxTQUFPLGdDQUFPLE1BQU0sQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLFNBQUssT0FBTyxFQUFDLENBQUM7Q0FDaEQiLCJmaWxlIjoiY3JlYXRlLW5ldy1sb29rdXAtb2JqZWN0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgZXh0ZW5kIH0gZnJvbSAnLi4vdXRpbHMnO1xuXG4vKipcbiAqIENyZWF0ZSBhIG5ldyBvYmplY3Qgd2l0aCBcIm51bGxcIi1wcm90b3R5cGUgdG8gYXZvaWQgdHJ1dGh5IHJlc3VsdHMgb24gcHJvdG90eXBlIHByb3BlcnRpZXMuXG4gKiBUaGUgcmVzdWx0aW5nIG9iamVjdCBjYW4gYmUgdXNlZCB3aXRoIFwib2JqZWN0W3Byb3BlcnR5XVwiIHRvIGNoZWNrIGlmIGEgcHJvcGVydHkgZXhpc3RzXG4gKiBAcGFyYW0gey4uLm9iamVjdH0gc291cmNlcyBhIHZhcmFyZ3MgcGFyYW1ldGVyIG9mIHNvdXJjZSBvYmplY3RzIHRoYXQgd2lsbCBiZSBtZXJnZWRcbiAqIEByZXR1cm5zIHtvYmplY3R9XG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBjcmVhdGVOZXdMb29rdXBPYmplY3QoLi4uc291cmNlcykge1xuICByZXR1cm4gZXh0ZW5kKE9iamVjdC5jcmVhdGUobnVsbCksIC4uLnNvdXJjZXMpO1xufVxuIl19</span>
+<a name="l23"><span class="ln">23   </span></a></pre>
+</body>
+</html>

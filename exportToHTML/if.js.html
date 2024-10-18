@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>if.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6aab73;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #cf8e6d;}
+.s4 { color: #7a7e85;}
+.s5 { color: #2aacb8;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+if.js</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">'use strict'</span><span class="s1">;</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s2">exports</span><span class="s1">.</span><span class="s2">__esModule </span><span class="s1">= </span><span class="s3">true</span><span class="s1">;</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s4">// istanbul ignore next</span>
+<a name="l5"><span class="ln">5    </span></a>
+<a name="l6"><span class="ln">6    </span></a><span class="s3">function </span><span class="s2">_interopRequireDefault</span><span class="s1">(</span><span class="s2">obj</span><span class="s1">) { </span><span class="s3">return </span><span class="s2">obj </span><span class="s1">&amp;&amp; </span><span class="s2">obj</span><span class="s1">.</span><span class="s2">__esModule </span><span class="s1">? </span><span class="s2">obj </span><span class="s1">: { </span><span class="s0">'default'</span><span class="s1">: </span><span class="s2">obj </span><span class="s1">}; }</span>
+<a name="l7"><span class="ln">7    </span></a>
+<a name="l8"><span class="ln">8    </span></a><span class="s3">var </span><span class="s2">_utils </span><span class="s1">= </span><span class="s2">require</span><span class="s1">(</span><span class="s0">'../utils'</span><span class="s1">);</span>
+<a name="l9"><span class="ln">9    </span></a>
+<a name="l10"><span class="ln">10   </span></a><span class="s3">var </span><span class="s2">_exception </span><span class="s1">= </span><span class="s2">require</span><span class="s1">(</span><span class="s0">'../exception'</span><span class="s1">);</span>
+<a name="l11"><span class="ln">11   </span></a>
+<a name="l12"><span class="ln">12   </span></a><span class="s3">var </span><span class="s2">_exception2 </span><span class="s1">= </span><span class="s2">_interopRequireDefault</span><span class="s1">(</span><span class="s2">_exception</span><span class="s1">);</span>
+<a name="l13"><span class="ln">13   </span></a>
+<a name="l14"><span class="ln">14   </span></a><span class="s2">exports</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">] = </span><span class="s3">function </span><span class="s1">(</span><span class="s2">instance</span><span class="s1">) {</span>
+<a name="l15"><span class="ln">15   </span></a>  <span class="s2">instance</span><span class="s1">.</span><span class="s2">registerHelper</span><span class="s1">(</span><span class="s0">'if'</span><span class="s1">, </span><span class="s3">function </span><span class="s1">(</span><span class="s2">conditional</span><span class="s1">, </span><span class="s2">options</span><span class="s1">) {</span>
+<a name="l16"><span class="ln">16   </span></a>    <span class="s3">if </span><span class="s1">(</span><span class="s2">arguments</span><span class="s1">.</span><span class="s2">length </span><span class="s1">!= </span><span class="s5">2</span><span class="s1">) {</span>
+<a name="l17"><span class="ln">17   </span></a>      <span class="s3">throw new </span><span class="s2">_exception2</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">](</span><span class="s0">'#if requires exactly one argument'</span><span class="s1">);</span>
+<a name="l18"><span class="ln">18   </span></a>    <span class="s1">}</span>
+<a name="l19"><span class="ln">19   </span></a>    <span class="s3">if </span><span class="s1">(</span><span class="s2">_utils</span><span class="s1">.</span><span class="s2">isFunction</span><span class="s1">(</span><span class="s2">conditional</span><span class="s1">)) {</span>
+<a name="l20"><span class="ln">20   </span></a>      <span class="s2">conditional </span><span class="s1">= </span><span class="s2">conditional</span><span class="s1">.</span><span class="s2">call</span><span class="s1">(</span><span class="s3">this</span><span class="s1">);</span>
+<a name="l21"><span class="ln">21   </span></a>    <span class="s1">}</span>
+<a name="l22"><span class="ln">22   </span></a>
+<a name="l23"><span class="ln">23   </span></a>    <span class="s4">// Default behavior is to render the positive path if the value is truthy and not empty.</span>
+<a name="l24"><span class="ln">24   </span></a>    <span class="s4">// The `includeZero` option may be set to treat the condtional as purely not empty based on the</span>
+<a name="l25"><span class="ln">25   </span></a>    <span class="s4">// behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.</span>
+<a name="l26"><span class="ln">26   </span></a>    <span class="s3">if </span><span class="s1">(!</span><span class="s2">options</span><span class="s1">.</span><span class="s2">hash</span><span class="s1">.</span><span class="s2">includeZero </span><span class="s1">&amp;&amp; !</span><span class="s2">conditional </span><span class="s1">|| </span><span class="s2">_utils</span><span class="s1">.</span><span class="s2">isEmpty</span><span class="s1">(</span><span class="s2">conditional</span><span class="s1">)) {</span>
+<a name="l27"><span class="ln">27   </span></a>      <span class="s3">return </span><span class="s2">options</span><span class="s1">.</span><span class="s2">inverse</span><span class="s1">(</span><span class="s3">this</span><span class="s1">);</span>
+<a name="l28"><span class="ln">28   </span></a>    <span class="s1">} </span><span class="s3">else </span><span class="s1">{</span>
+<a name="l29"><span class="ln">29   </span></a>      <span class="s3">return </span><span class="s2">options</span><span class="s1">.</span><span class="s2">fn</span><span class="s1">(</span><span class="s3">this</span><span class="s1">);</span>
+<a name="l30"><span class="ln">30   </span></a>    <span class="s1">}</span>
+<a name="l31"><span class="ln">31   </span></a>  <span class="s1">});</span>
+<a name="l32"><span class="ln">32   </span></a>
+<a name="l33"><span class="ln">33   </span></a>  <span class="s2">instance</span><span class="s1">.</span><span class="s2">registerHelper</span><span class="s1">(</span><span class="s0">'unless'</span><span class="s1">, </span><span class="s3">function </span><span class="s1">(</span><span class="s2">conditional</span><span class="s1">, </span><span class="s2">options</span><span class="s1">) {</span>
+<a name="l34"><span class="ln">34   </span></a>    <span class="s3">if </span><span class="s1">(</span><span class="s2">arguments</span><span class="s1">.</span><span class="s2">length </span><span class="s1">!= </span><span class="s5">2</span><span class="s1">) {</span>
+<a name="l35"><span class="ln">35   </span></a>      <span class="s3">throw new </span><span class="s2">_exception2</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">](</span><span class="s0">'#unless requires exactly one argument'</span><span class="s1">);</span>
+<a name="l36"><span class="ln">36   </span></a>    <span class="s1">}</span>
+<a name="l37"><span class="ln">37   </span></a>    <span class="s3">return </span><span class="s2">instance</span><span class="s1">.</span><span class="s2">helpers</span><span class="s1">[</span><span class="s0">'if'</span><span class="s1">].</span><span class="s2">call</span><span class="s1">(</span><span class="s3">this</span><span class="s1">, </span><span class="s2">conditional</span><span class="s1">, {</span>
+<a name="l38"><span class="ln">38   </span></a>      <span class="s2">fn</span><span class="s1">: </span><span class="s2">options</span><span class="s1">.</span><span class="s2">inverse</span><span class="s1">,</span>
+<a name="l39"><span class="ln">39   </span></a>      <span class="s2">inverse</span><span class="s1">: </span><span class="s2">options</span><span class="s1">.</span><span class="s2">fn</span><span class="s1">,</span>
+<a name="l40"><span class="ln">40   </span></a>      <span class="s2">hash</span><span class="s1">: </span><span class="s2">options</span><span class="s1">.</span><span class="s2">hash</span>
+<a name="l41"><span class="ln">41   </span></a>    <span class="s1">});</span>
+<a name="l42"><span class="ln">42   </span></a>  <span class="s1">});</span>
+<a name="l43"><span class="ln">43   </span></a><span class="s1">};</span>
+<a name="l44"><span class="ln">44   </span></a>
+<a name="l45"><span class="ln">45   </span></a><span class="s2">module</span><span class="s1">.</span><span class="s2">exports </span><span class="s1">= </span><span class="s2">exports</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">];</span>
+<a name="l46"><span class="ln">46   </span></a><span class="s4">//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2hlbHBlcnMvaWYuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7OztxQkFBb0MsVUFBVTs7eUJBQ3hCLGNBQWM7Ozs7cUJBRXJCLFVBQVMsUUFBUSxFQUFFO0FBQ2hDLFVBQVEsQ0FBQyxjQUFjLENBQUMsSUFBSSxFQUFFLFVBQVMsV0FBVyxFQUFFLE9BQU8sRUFBRTtBQUMzRCxRQUFJLFNBQVMsQ0FBQyxNQUFNLElBQUksQ0FBQyxFQUFFO0FBQ3pCLFlBQU0sMkJBQWMsbUNBQW1DLENBQUMsQ0FBQztLQUMxRDtBQUNELFFBQUksa0JBQVcsV0FBVyxDQUFDLEVBQUU7QUFDM0IsaUJBQVcsR0FBRyxXQUFXLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQ3RDOzs7OztBQUtELFFBQUksQUFBQyxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsV0FBVyxJQUFJLENBQUMsV0FBVyxJQUFLLGVBQVEsV0FBVyxDQUFDLEVBQUU7QUFDdkUsYUFBTyxPQUFPLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDO0tBQzlCLE1BQU07QUFDTCxhQUFPLE9BQU8sQ0FBQyxFQUFFLENBQUMsSUFBSSxDQUFDLENBQUM7S0FDekI7R0FDRixDQUFDLENBQUM7O0FBRUgsVUFBUSxDQUFDLGNBQWMsQ0FBQyxRQUFRLEVBQUUsVUFBUyxXQUFXLEVBQUUsT0FBTyxFQUFFO0FBQy9ELFFBQUksU0FBUyxDQUFDLE1BQU0sSUFBSSxDQUFDLEVBQUU7QUFDekIsWUFBTSwyQkFBYyx1Q0FBdUMsQ0FBQyxDQUFDO0tBQzlEO0FBQ0QsV0FBTyxRQUFRLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsV0FBVyxFQUFFO0FBQ3BELFFBQUUsRUFBRSxPQUFPLENBQUMsT0FBTztBQUNuQixhQUFPLEVBQUUsT0FBTyxDQUFDLEVBQUU7QUFDbkIsVUFBSSxFQUFFLE9BQU8sQ0FBQyxJQUFJO0tBQ25CLENBQUMsQ0FBQztHQUNKLENBQUMsQ0FBQztDQUNKIiwiZmlsZSI6ImlmLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgaXNFbXB0eSwgaXNGdW5jdGlvbiB9IGZyb20gJy4uL3V0aWxzJztcbmltcG9ydCBFeGNlcHRpb24gZnJvbSAnLi4vZXhjZXB0aW9uJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oaW5zdGFuY2UpIHtcbiAgaW5zdGFuY2UucmVnaXN0ZXJIZWxwZXIoJ2lmJywgZnVuY3Rpb24oY29uZGl0aW9uYWwsIG9wdGlvbnMpIHtcbiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCAhPSAyKSB7XG4gICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCcjaWYgcmVxdWlyZXMgZXhhY3RseSBvbmUgYXJndW1lbnQnKTtcbiAgICB9XG4gICAgaWYgKGlzRnVuY3Rpb24oY29uZGl0aW9uYWwpKSB7XG4gICAgICBjb25kaXRpb25hbCA9IGNvbmRpdGlvbmFsLmNhbGwodGhpcyk7XG4gICAgfVxuXG4gICAgLy8gRGVmYXVsdCBiZWhhdmlvciBpcyB0byByZW5kZXIgdGhlIHBvc2l0aXZlIHBhdGggaWYgdGhlIHZhbHVlIGlzIHRydXRoeSBhbmQgbm90IGVtcHR5LlxuICAgIC8vIFRoZSBgaW5jbHVkZVplcm9gIG9wdGlvbiBtYXkgYmUgc2V0IHRvIHRyZWF0IHRoZSBjb25kdGlvbmFsIGFzIHB1cmVseSBub3QgZW1wdHkgYmFzZWQgb24gdGhlXG4gICAgLy8gYmVoYXZpb3Igb2YgaXNFbXB0eS4gRWZmZWN0aXZlbHkgdGhpcyBkZXRlcm1pbmVzIGlmIDAgaXMgaGFuZGxlZCBieSB0aGUgcG9zaXRpdmUgcGF0aCBvciBuZWdhdGl2ZS5cbiAgICBpZiAoKCFvcHRpb25zLmhhc2guaW5jbHVkZVplcm8gJiYgIWNvbmRpdGlvbmFsKSB8fCBpc0VtcHR5KGNvbmRpdGlvbmFsKSkge1xuICAgICAgcmV0dXJuIG9wdGlvbnMuaW52ZXJzZSh0aGlzKTtcbiAgICB9IGVsc2Uge1xuICAgICAgcmV0dXJuIG9wdGlvbnMuZm4odGhpcyk7XG4gICAgfVxuICB9KTtcblxuICBpbnN0YW5jZS5yZWdpc3RlckhlbHBlcigndW5sZXNzJywgZnVuY3Rpb24oY29uZGl0aW9uYWwsIG9wdGlvbnMpIHtcbiAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCAhPSAyKSB7XG4gICAgICB0aHJvdyBuZXcgRXhjZXB0aW9uKCcjdW5sZXNzIHJlcXVpcmVzIGV4YWN0bHkgb25lIGFyZ3VtZW50Jyk7XG4gICAgfVxuICAgIHJldHVybiBpbnN0YW5jZS5oZWxwZXJzWydpZiddLmNhbGwodGhpcywgY29uZGl0aW9uYWwsIHtcbiAgICAgIGZuOiBvcHRpb25zLmludmVyc2UsXG4gICAgICBpbnZlcnNlOiBvcHRpb25zLmZuLFxuICAgICAgaGFzaDogb3B0aW9ucy5oYXNoXG4gICAgfSk7XG4gIH0pO1xufVxuIl19</span>
+<a name="l47"><span class="ln">47   </span></a></pre>
+</body>
+</html>

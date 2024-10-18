@@ -1,0 +1,28 @@
+nav {
+    background-color: mintcream;
+    color: darkgrey;
+    padding: 15px 51px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    height: 50%;
+    overflow: hidden;
+    position: relative;
+}
+nav li {
+   display: inline-block;
+    margin: 0 10px;
+}
+nav  {
+    display: flex;
+}

@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>safe-string.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #bcbec4;}
+.s4 { color: #cf8e6d;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+safe-string.js</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">// Build out our basic SafeString type</span>
+<a name="l2"><span class="ln">2    </span></a><span class="s2">'use strict'</span><span class="s3">;</span>
+<a name="l3"><span class="ln">3    </span></a>
+<a name="l4"><span class="ln">4    </span></a><span class="s1">exports</span><span class="s3">.</span><span class="s1">__esModule </span><span class="s3">= </span><span class="s4">true</span><span class="s3">;</span>
+<a name="l5"><span class="ln">5    </span></a><span class="s4">function </span><span class="s1">SafeString</span><span class="s3">(</span><span class="s1">string</span><span class="s3">) {</span>
+<a name="l6"><span class="ln">6    </span></a>  <span class="s4">this</span><span class="s3">.</span><span class="s1">string </span><span class="s3">= </span><span class="s1">string</span><span class="s3">;</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s3">}</span>
+<a name="l8"><span class="ln">8    </span></a>
+<a name="l9"><span class="ln">9    </span></a><span class="s1">SafeString</span><span class="s3">.</span><span class="s1">prototype</span><span class="s3">.</span><span class="s1">toString </span><span class="s3">= </span><span class="s1">SafeString</span><span class="s3">.</span><span class="s1">prototype</span><span class="s3">.</span><span class="s1">toHTML </span><span class="s3">= </span><span class="s4">function </span><span class="s3">() {</span>
+<a name="l10"><span class="ln">10   </span></a>  <span class="s4">return </span><span class="s2">'' </span><span class="s3">+ </span><span class="s4">this</span><span class="s3">.</span><span class="s1">string</span><span class="s3">;</span>
+<a name="l11"><span class="ln">11   </span></a><span class="s3">};</span>
+<a name="l12"><span class="ln">12   </span></a>
+<a name="l13"><span class="ln">13   </span></a><span class="s1">exports</span><span class="s3">[</span><span class="s2">'default'</span><span class="s3">] = </span><span class="s1">SafeString</span><span class="s3">;</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s1">module</span><span class="s3">.</span><span class="s1">exports </span><span class="s3">= </span><span class="s1">exports</span><span class="s3">[</span><span class="s2">'default'</span><span class="s3">];</span>
+<a name="l15"><span class="ln">15   </span></a><span class="s0">//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL3NhZmUtc3RyaW5nLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFDQSxTQUFTLFVBQVUsQ0FBQyxNQUFNLEVBQUU7QUFDMUIsTUFBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7Q0FDdEI7O0FBRUQsVUFBVSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsVUFBVSxDQUFDLFNBQVMsQ0FBQyxNQUFNLEdBQUcsWUFBVztBQUN2RSxTQUFPLEVBQUUsR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDO0NBQ3pCLENBQUM7O3FCQUVhLFVBQVUiLCJmaWxlIjoic2FmZS1zdHJpbmcuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBCdWlsZCBvdXQgb3VyIGJhc2ljIFNhZmVTdHJpbmcgdHlwZVxuZnVuY3Rpb24gU2FmZVN0cmluZyhzdHJpbmcpIHtcbiAgdGhpcy5zdHJpbmcgPSBzdHJpbmc7XG59XG5cblNhZmVTdHJpbmcucHJvdG90eXBlLnRvU3RyaW5nID0gU2FmZVN0cmluZy5wcm90b3R5cGUudG9IVE1MID0gZnVuY3Rpb24oKSB7XG4gIHJldHVybiAnJyArIHRoaXMuc3RyaW5nO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgU2FmZVN0cmluZztcbiJdfQ==</span>
+<a name="l16"><span class="ln">16   </span></a></pre>
+</body>
+</html>

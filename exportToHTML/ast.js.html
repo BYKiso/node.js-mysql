@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>ast.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6aab73;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #cf8e6d;}
+.s4 { color: #7a7e85;}
+.s5 { color: #42c3d4;}
+.s6 { color: #2aacb8;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ast.js</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">'use strict'</span><span class="s1">;</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s2">exports</span><span class="s1">.</span><span class="s2">__esModule </span><span class="s1">= </span><span class="s3">true</span><span class="s1">;</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s3">var </span><span class="s2">AST </span><span class="s1">= {</span>
+<a name="l5"><span class="ln">5    </span></a>  <span class="s4">// Public API used to evaluate derived attributes regarding AST nodes</span>
+<a name="l6"><span class="ln">6    </span></a>  <span class="s2">helpers</span><span class="s1">: {</span>
+<a name="l7"><span class="ln">7    </span></a>    <span class="s4">// a mustache is definitely a helper if:</span>
+<a name="l8"><span class="ln">8    </span></a>    <span class="s4">// * it is an eligible helper, and</span>
+<a name="l9"><span class="ln">9    </span></a>    <span class="s4">// * it has at least one parameter or hash segment</span>
+<a name="l10"><span class="ln">10   </span></a>    <span class="s2">helperExpression</span><span class="s1">: </span><span class="s3">function </span><span class="s2">helperExpression</span><span class="s1">(</span><span class="s2">node</span><span class="s1">) {</span>
+<a name="l11"><span class="ln">11   </span></a>      <span class="s3">return </span><span class="s2">node</span><span class="s1">.</span><span class="s2">type </span><span class="s1">=== </span><span class="s0">'SubExpression' </span><span class="s1">|| (</span><span class="s2">node</span><span class="s1">.</span><span class="s2">type </span><span class="s1">=== </span><span class="s0">'MustacheStatement' </span><span class="s1">|| </span><span class="s2">node</span><span class="s1">.</span><span class="s2">type </span><span class="s1">=== </span><span class="s0">'BlockStatement'</span><span class="s1">) &amp;&amp; !!(</span><span class="s2">node</span><span class="s1">.</span><span class="s2">params </span><span class="s1">&amp;&amp; </span><span class="s2">node</span><span class="s1">.</span><span class="s2">params</span><span class="s1">.</span><span class="s2">length </span><span class="s1">|| </span><span class="s2">node</span><span class="s1">.</span><span class="s2">hash</span><span class="s1">);</span>
+<a name="l12"><span class="ln">12   </span></a>    <span class="s1">},</span>
+<a name="l13"><span class="ln">13   </span></a>
+<a name="l14"><span class="ln">14   </span></a>    <span class="s2">scopedId</span><span class="s1">: </span><span class="s3">function </span><span class="s2">scopedId</span><span class="s1">(</span><span class="s2">path</span><span class="s1">) {</span>
+<a name="l15"><span class="ln">15   </span></a>      <span class="s3">return </span><span class="s1">(</span><span class="s5">/^\.|this\b/</span><span class="s1">.</span><span class="s2">test</span><span class="s1">(</span><span class="s2">path</span><span class="s1">.</span><span class="s2">original</span><span class="s1">)</span>
+<a name="l16"><span class="ln">16   </span></a>      <span class="s1">);</span>
+<a name="l17"><span class="ln">17   </span></a>    <span class="s1">},</span>
+<a name="l18"><span class="ln">18   </span></a>
+<a name="l19"><span class="ln">19   </span></a>    <span class="s4">// an ID is simple if it only has one part, and that part is not</span>
+<a name="l20"><span class="ln">20   </span></a>    <span class="s4">// `..` or `this`.</span>
+<a name="l21"><span class="ln">21   </span></a>    <span class="s2">simpleId</span><span class="s1">: </span><span class="s3">function </span><span class="s2">simpleId</span><span class="s1">(</span><span class="s2">path</span><span class="s1">) {</span>
+<a name="l22"><span class="ln">22   </span></a>      <span class="s3">return </span><span class="s2">path</span><span class="s1">.</span><span class="s2">parts</span><span class="s1">.</span><span class="s2">length </span><span class="s1">=== </span><span class="s6">1 </span><span class="s1">&amp;&amp; !</span><span class="s2">AST</span><span class="s1">.</span><span class="s2">helpers</span><span class="s1">.</span><span class="s2">scopedId</span><span class="s1">(</span><span class="s2">path</span><span class="s1">) &amp;&amp; !</span><span class="s2">path</span><span class="s1">.</span><span class="s2">depth</span><span class="s1">;</span>
+<a name="l23"><span class="ln">23   </span></a>    <span class="s1">}</span>
+<a name="l24"><span class="ln">24   </span></a>  <span class="s1">}</span>
+<a name="l25"><span class="ln">25   </span></a><span class="s1">};</span>
+<a name="l26"><span class="ln">26   </span></a>
+<a name="l27"><span class="ln">27   </span></a><span class="s4">// Must be exported as an object rather than the root of the module as the jison lexer</span>
+<a name="l28"><span class="ln">28   </span></a><span class="s4">// must modify the object to operate properly.</span>
+<a name="l29"><span class="ln">29   </span></a><span class="s2">exports</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">] = </span><span class="s2">AST</span><span class="s1">;</span>
+<a name="l30"><span class="ln">30   </span></a><span class="s2">module</span><span class="s1">.</span><span class="s2">exports </span><span class="s1">= </span><span class="s2">exports</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">];</span>
+<a name="l31"><span class="ln">31   </span></a><span class="s4">//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2NvbXBpbGVyL2FzdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxJQUFJLEdBQUcsR0FBRzs7QUFFUixTQUFPLEVBQUU7Ozs7QUFJUCxvQkFBZ0IsRUFBRSwwQkFBUyxJQUFJLEVBQUU7QUFDL0IsYUFDRSxJQUFJLENBQUMsSUFBSSxLQUFLLGVBQWUsSUFDNUIsQ0FBQyxJQUFJLENBQUMsSUFBSSxLQUFLLG1CQUFtQixJQUNqQyxJQUFJLENBQUMsSUFBSSxLQUFLLGdCQUFnQixDQUFBLElBQzlCLENBQUMsRUFBRSxBQUFDLElBQUksQ0FBQyxNQUFNLElBQUksSUFBSSxDQUFDLE1BQU0sQ0FBQyxNQUFNLElBQUssSUFBSSxDQUFDLElBQUksQ0FBQSxBQUFDLEFBQUMsQ0FDdkQ7S0FDSDs7QUFFRCxZQUFRLEVBQUUsa0JBQVMsSUFBSSxFQUFFO0FBQ3ZCLGFBQU8sYUFBWSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsUUFBUSxDQUFDO1FBQUM7S0FDekM7Ozs7QUFJRCxZQUFRLEVBQUUsa0JBQVMsSUFBSSxFQUFFO0FBQ3ZCLGFBQ0UsSUFBSSxDQUFDLEtBQUssQ0FBQyxNQUFNLEtBQUssQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUNyRTtLQUNIO0dBQ0Y7Q0FDRixDQUFDOzs7O3FCQUlhLEdBQUciLCJmaWxlIjoiYXN0LmpzIiwic291cmNlc0NvbnRlbnQiOlsibGV0IEFTVCA9IHtcbiAgLy8gUHVibGljIEFQSSB1c2VkIHRvIGV2YWx1YXRlIGRlcml2ZWQgYXR0cmlidXRlcyByZWdhcmRpbmcgQVNUIG5vZGVzXG4gIGhlbHBlcnM6IHtcbiAgICAvLyBhIG11c3RhY2hlIGlzIGRlZmluaXRlbHkgYSBoZWxwZXIgaWY6XG4gICAgLy8gKiBpdCBpcyBhbiBlbGlnaWJsZSBoZWxwZXIsIGFuZFxuICAgIC8vICogaXQgaGFzIGF0IGxlYXN0IG9uZSBwYXJhbWV0ZXIgb3IgaGFzaCBzZWdtZW50XG4gICAgaGVscGVyRXhwcmVzc2lvbjogZnVuY3Rpb24obm9kZSkge1xuICAgICAgcmV0dXJuIChcbiAgICAgICAgbm9kZS50eXBlID09PSAnU3ViRXhwcmVzc2lvbicgfHxcbiAgICAgICAgKChub2RlLnR5cGUgPT09ICdNdXN0YWNoZVN0YXRlbWVudCcgfHxcbiAgICAgICAgICBub2RlLnR5cGUgPT09ICdCbG9ja1N0YXRlbWVudCcpICYmXG4gICAgICAgICAgISEoKG5vZGUucGFyYW1zICYmIG5vZGUucGFyYW1zLmxlbmd0aCkgfHwgbm9kZS5oYXNoKSlcbiAgICAgICk7XG4gICAgfSxcblxuICAgIHNjb3BlZElkOiBmdW5jdGlvbihwYXRoKSB7XG4gICAgICByZXR1cm4gL15cXC58dGhpc1xcYi8udGVzdChwYXRoLm9yaWdpbmFsKTtcbiAgICB9LFxuXG4gICAgLy8gYW4gSUQgaXMgc2ltcGxlIGlmIGl0IG9ubHkgaGFzIG9uZSBwYXJ0LCBhbmQgdGhhdCBwYXJ0IGlzIG5vdFxuICAgIC8vIGAuLmAgb3IgYHRoaXNgLlxuICAgIHNpbXBsZUlkOiBmdW5jdGlvbihwYXRoKSB7XG4gICAgICByZXR1cm4gKFxuICAgICAgICBwYXRoLnBhcnRzLmxlbmd0aCA9PT0gMSAmJiAhQVNULmhlbHBlcnMuc2NvcGVkSWQocGF0aCkgJiYgIXBhdGguZGVwdGhcbiAgICAgICk7XG4gICAgfVxuICB9XG59O1xuXG4vLyBNdXN0IGJlIGV4cG9ydGVkIGFzIGFuIG9iamVjdCByYXRoZXIgdGhhbiB0aGUgcm9vdCBvZiB0aGUgbW9kdWxlIGFzIHRoZSBqaXNvbiBsZXhlclxuLy8gbXVzdCBtb2RpZnkgdGhlIG9iamVjdCB0byBvcGVyYXRlIHByb3Blcmx5LlxuZXhwb3J0IGRlZmF1bHQgQVNUO1xuIl19</span>
+<a name="l32"><span class="ln">32   </span></a></pre>
+</body>
+</html>

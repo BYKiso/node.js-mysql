@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>logger.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6aab73;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #cf8e6d;}
+.s4 { color: #7a7e85;}
+.s5 { color: #2aacb8;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+logger.js</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">'use strict'</span><span class="s1">;</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s2">exports</span><span class="s1">.</span><span class="s2">__esModule </span><span class="s1">= </span><span class="s3">true</span><span class="s1">;</span>
+<a name="l4"><span class="ln">4    </span></a>
+<a name="l5"><span class="ln">5    </span></a><span class="s3">var </span><span class="s2">_utils </span><span class="s1">= </span><span class="s2">require</span><span class="s1">(</span><span class="s0">'./utils'</span><span class="s1">);</span>
+<a name="l6"><span class="ln">6    </span></a>
+<a name="l7"><span class="ln">7    </span></a><span class="s3">var </span><span class="s2">logger </span><span class="s1">= {</span>
+<a name="l8"><span class="ln">8    </span></a>  <span class="s2">methodMap</span><span class="s1">: [</span><span class="s0">'debug'</span><span class="s1">, </span><span class="s0">'info'</span><span class="s1">, </span><span class="s0">'warn'</span><span class="s1">, </span><span class="s0">'error'</span><span class="s1">],</span>
+<a name="l9"><span class="ln">9    </span></a>  <span class="s2">level</span><span class="s1">: </span><span class="s0">'info'</span><span class="s1">,</span>
+<a name="l10"><span class="ln">10   </span></a>
+<a name="l11"><span class="ln">11   </span></a>  <span class="s4">// Maps a given level value to the `methodMap` indexes above.</span>
+<a name="l12"><span class="ln">12   </span></a>  <span class="s2">lookupLevel</span><span class="s1">: </span><span class="s3">function </span><span class="s2">lookupLevel</span><span class="s1">(</span><span class="s2">level</span><span class="s1">) {</span>
+<a name="l13"><span class="ln">13   </span></a>    <span class="s3">if </span><span class="s1">(</span><span class="s3">typeof </span><span class="s2">level </span><span class="s1">=== </span><span class="s0">'string'</span><span class="s1">) {</span>
+<a name="l14"><span class="ln">14   </span></a>      <span class="s3">var </span><span class="s2">levelMap </span><span class="s1">= </span><span class="s2">_utils</span><span class="s1">.</span><span class="s2">indexOf</span><span class="s1">(</span><span class="s2">logger</span><span class="s1">.</span><span class="s2">methodMap</span><span class="s1">, </span><span class="s2">level</span><span class="s1">.</span><span class="s2">toLowerCase</span><span class="s1">());</span>
+<a name="l15"><span class="ln">15   </span></a>      <span class="s3">if </span><span class="s1">(</span><span class="s2">levelMap </span><span class="s1">&gt;= </span><span class="s5">0</span><span class="s1">) {</span>
+<a name="l16"><span class="ln">16   </span></a>        <span class="s2">level </span><span class="s1">= </span><span class="s2">levelMap</span><span class="s1">;</span>
+<a name="l17"><span class="ln">17   </span></a>      <span class="s1">} </span><span class="s3">else </span><span class="s1">{</span>
+<a name="l18"><span class="ln">18   </span></a>        <span class="s2">level </span><span class="s1">= </span><span class="s2">parseInt</span><span class="s1">(</span><span class="s2">level</span><span class="s1">, </span><span class="s5">10</span><span class="s1">);</span>
+<a name="l19"><span class="ln">19   </span></a>      <span class="s1">}</span>
+<a name="l20"><span class="ln">20   </span></a>    <span class="s1">}</span>
+<a name="l21"><span class="ln">21   </span></a>
+<a name="l22"><span class="ln">22   </span></a>    <span class="s3">return </span><span class="s2">level</span><span class="s1">;</span>
+<a name="l23"><span class="ln">23   </span></a>  <span class="s1">},</span>
+<a name="l24"><span class="ln">24   </span></a>
+<a name="l25"><span class="ln">25   </span></a>  <span class="s4">// Can be overridden in the host environment</span>
+<a name="l26"><span class="ln">26   </span></a>  <span class="s2">log</span><span class="s1">: </span><span class="s3">function </span><span class="s2">log</span><span class="s1">(</span><span class="s2">level</span><span class="s1">) {</span>
+<a name="l27"><span class="ln">27   </span></a>    <span class="s2">level </span><span class="s1">= </span><span class="s2">logger</span><span class="s1">.</span><span class="s2">lookupLevel</span><span class="s1">(</span><span class="s2">level</span><span class="s1">);</span>
+<a name="l28"><span class="ln">28   </span></a>
+<a name="l29"><span class="ln">29   </span></a>    <span class="s3">if </span><span class="s1">(</span><span class="s3">typeof </span><span class="s2">console </span><span class="s1">!== </span><span class="s0">'undefined' </span><span class="s1">&amp;&amp; </span><span class="s2">logger</span><span class="s1">.</span><span class="s2">lookupLevel</span><span class="s1">(</span><span class="s2">logger</span><span class="s1">.</span><span class="s2">level</span><span class="s1">) &lt;= </span><span class="s2">level</span><span class="s1">) {</span>
+<a name="l30"><span class="ln">30   </span></a>      <span class="s3">var </span><span class="s2">method </span><span class="s1">= </span><span class="s2">logger</span><span class="s1">.</span><span class="s2">methodMap</span><span class="s1">[</span><span class="s2">level</span><span class="s1">];</span>
+<a name="l31"><span class="ln">31   </span></a>      <span class="s4">// eslint-disable-next-line no-console</span>
+<a name="l32"><span class="ln">32   </span></a>      <span class="s3">if </span><span class="s1">(!</span><span class="s2">console</span><span class="s1">[</span><span class="s2">method</span><span class="s1">]) {</span>
+<a name="l33"><span class="ln">33   </span></a>        <span class="s2">method </span><span class="s1">= </span><span class="s0">'log'</span><span class="s1">;</span>
+<a name="l34"><span class="ln">34   </span></a>      <span class="s1">}</span>
+<a name="l35"><span class="ln">35   </span></a>
+<a name="l36"><span class="ln">36   </span></a>      <span class="s3">for </span><span class="s1">(</span><span class="s3">var </span><span class="s2">_len </span><span class="s1">= </span><span class="s2">arguments</span><span class="s1">.</span><span class="s2">length</span><span class="s1">, </span><span class="s2">message </span><span class="s1">= </span><span class="s2">Array</span><span class="s1">(</span><span class="s2">_len </span><span class="s1">&gt; </span><span class="s5">1 </span><span class="s1">? </span><span class="s2">_len </span><span class="s1">- </span><span class="s5">1 </span><span class="s1">: </span><span class="s5">0</span><span class="s1">), </span><span class="s2">_key </span><span class="s1">= </span><span class="s5">1</span><span class="s1">; </span><span class="s2">_key </span><span class="s1">&lt; </span><span class="s2">_len</span><span class="s1">; </span><span class="s2">_key</span><span class="s1">++) {</span>
+<a name="l37"><span class="ln">37   </span></a>        <span class="s2">message</span><span class="s1">[</span><span class="s2">_key </span><span class="s1">- </span><span class="s5">1</span><span class="s1">] = </span><span class="s2">arguments</span><span class="s1">[</span><span class="s2">_key</span><span class="s1">];</span>
+<a name="l38"><span class="ln">38   </span></a>      <span class="s1">}</span>
+<a name="l39"><span class="ln">39   </span></a>
+<a name="l40"><span class="ln">40   </span></a>      <span class="s2">console</span><span class="s1">[</span><span class="s2">method</span><span class="s1">].</span><span class="s2">apply</span><span class="s1">(</span><span class="s2">console</span><span class="s1">, </span><span class="s2">message</span><span class="s1">); </span><span class="s4">// eslint-disable-line no-console</span>
+<a name="l41"><span class="ln">41   </span></a>    <span class="s1">}</span>
+<a name="l42"><span class="ln">42   </span></a>  <span class="s1">}</span>
+<a name="l43"><span class="ln">43   </span></a><span class="s1">};</span>
+<a name="l44"><span class="ln">44   </span></a>
+<a name="l45"><span class="ln">45   </span></a><span class="s2">exports</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">] = </span><span class="s2">logger</span><span class="s1">;</span>
+<a name="l46"><span class="ln">46   </span></a><span class="s2">module</span><span class="s1">.</span><span class="s2">exports </span><span class="s1">= </span><span class="s2">exports</span><span class="s1">[</span><span class="s0">'default'</span><span class="s1">];</span>
+<a name="l47"><span class="ln">47   </span></a><span class="s4">//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2xpYi9oYW5kbGViYXJzL2xvZ2dlci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O3FCQUF3QixTQUFTOztBQUVqQyxJQUFJLE1BQU0sR0FBRztBQUNYLFdBQVMsRUFBRSxDQUFDLE9BQU8sRUFBRSxNQUFNLEVBQUUsTUFBTSxFQUFFLE9BQU8sQ0FBQztBQUM3QyxPQUFLLEVBQUUsTUFBTTs7O0FBR2IsYUFBVyxFQUFFLHFCQUFTLEtBQUssRUFBRTtBQUMzQixRQUFJLE9BQU8sS0FBSyxLQUFLLFFBQVEsRUFBRTtBQUM3QixVQUFJLFFBQVEsR0FBRyxlQUFRLE1BQU0sQ0FBQyxTQUFTLEVBQUUsS0FBSyxDQUFDLFdBQVcsRUFBRSxDQUFDLENBQUM7QUFDOUQsVUFBSSxRQUFRLElBQUksQ0FBQyxFQUFFO0FBQ2pCLGFBQUssR0FBRyxRQUFRLENBQUM7T0FDbEIsTUFBTTtBQUNMLGFBQUssR0FBRyxRQUFRLENBQUMsS0FBSyxFQUFFLEVBQUUsQ0FBQyxDQUFDO09BQzdCO0tBQ0Y7O0FBRUQsV0FBTyxLQUFLLENBQUM7R0FDZDs7O0FBR0QsS0FBRyxFQUFFLGFBQVMsS0FBSyxFQUFjO0FBQy9CLFNBQUssR0FBRyxNQUFNLENBQUMsV0FBVyxDQUFDLEtBQUssQ0FBQyxDQUFDOztBQUVsQyxRQUNFLE9BQU8sT0FBTyxLQUFLLFdBQVcsSUFDOUIsTUFBTSxDQUFDLFdBQVcsQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDLElBQUksS0FBSyxFQUN6QztBQUNBLFVBQUksTUFBTSxHQUFHLE1BQU0sQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7O0FBRXJDLFVBQUksQ0FBQyxPQUFPLENBQUMsTUFBTSxDQUFDLEVBQUU7QUFDcEIsY0FBTSxHQUFHLEtBQUssQ0FBQztPQUNoQjs7d0NBWG1CLE9BQU87QUFBUCxlQUFPOzs7QUFZM0IsYUFBTyxDQUFDLE1BQU0sT0FBQyxDQUFmLE9BQU8sRUFBWSxPQUFPLENBQUMsQ0FBQztLQUM3QjtHQUNGO0NBQ0YsQ0FBQzs7cUJBRWEsTUFBTSIsImZpbGUiOiJsb2dnZXIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBpbmRleE9mIH0gZnJvbSAnLi91dGlscyc7XG5cbmxldCBsb2dnZXIgPSB7XG4gIG1ldGhvZE1hcDogWydkZWJ1ZycsICdpbmZvJywgJ3dhcm4nLCAnZXJyb3InXSxcbiAgbGV2ZWw6ICdpbmZvJyxcblxuICAvLyBNYXBzIGEgZ2l2ZW4gbGV2ZWwgdmFsdWUgdG8gdGhlIGBtZXRob2RNYXBgIGluZGV4ZXMgYWJvdmUuXG4gIGxvb2t1cExldmVsOiBmdW5jdGlvbihsZXZlbCkge1xuICAgIGlmICh0eXBlb2YgbGV2ZWwgPT09ICdzdHJpbmcnKSB7XG4gICAgICBsZXQgbGV2ZWxNYXAgPSBpbmRleE9mKGxvZ2dlci5tZXRob2RNYXAsIGxldmVsLnRvTG93ZXJDYXNlKCkpO1xuICAgICAgaWYgKGxldmVsTWFwID49IDApIHtcbiAgICAgICAgbGV2ZWwgPSBsZXZlbE1hcDtcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIGxldmVsID0gcGFyc2VJbnQobGV2ZWwsIDEwKTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICByZXR1cm4gbGV2ZWw7XG4gIH0sXG5cbiAgLy8gQ2FuIGJlIG92ZXJyaWRkZW4gaW4gdGhlIGhvc3QgZW52aXJvbm1lbnRcbiAgbG9nOiBmdW5jdGlvbihsZXZlbCwgLi4ubWVzc2FnZSkge1xuICAgIGxldmVsID0gbG9nZ2VyLmxvb2t1cExldmVsKGxldmVsKTtcblxuICAgIGlmIChcbiAgICAgIHR5cGVvZiBjb25zb2xlICE9PSAndW5kZWZpbmVkJyAmJlxuICAgICAgbG9nZ2VyLmxvb2t1cExldmVsKGxvZ2dlci5sZXZlbCkgPD0gbGV2ZWxcbiAgICApIHtcbiAgICAgIGxldCBtZXRob2QgPSBsb2dnZXIubWV0aG9kTWFwW2xldmVsXTtcbiAgICAgIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBuby1jb25zb2xlXG4gICAgICBpZiAoIWNvbnNvbGVbbWV0aG9kXSkge1xuICAgICAgICBtZXRob2QgPSAnbG9nJztcbiAgICAgIH1cbiAgICAgIGNvbnNvbGVbbWV0aG9kXSguLi5tZXNzYWdlKTsgLy8gZXNsaW50LWRpc2FibGUtbGluZSBuby1jb25zb2xlXG4gICAgfVxuICB9XG59O1xuXG5leHBvcnQgZGVmYXVsdCBsb2dnZXI7XG4iXX0=</span>
+<a name="l48"><span class="ln">48   </span></a></pre>
+</body>
+</html>
