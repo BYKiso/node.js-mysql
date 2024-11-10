@@ -1,27 +1,33 @@
+
 const express = require('express');
 const mysql = require('mysql');
 const path = require('path');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv')
+
 
 dotenv.config({path:'./.env'});
 
 const app = express();
 
-//database link created
+//database link created]
 
 const db = mysql.createConnection({
     host: process.env.DATABSE_HOST,
     user: process.env.DATABSE_USER,
     password: process.env.DATABSE_PASSWORD,
-    database: process.env.DATABASE,
+    database: process.env.DATABASE
 });
 
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
 
+app.use(express.urlencoded({ extended: false }));
+
+app.use(express.json());
+
 app.set('view engine', 'hbs');
 
-db.connect((error) => {
+db.connect( (error) => {
     if (error) {
         console.log(error)
     } else {
@@ -29,10 +35,8 @@ db.connect((error) => {
     }
 })
 
-app.get("/", (req, res) => {
-   // res.send("<h1>Home Page</h1>")
-    res.render("index");
-})
+app.use('/', require('./routes/page'));
+app.use('/auth', require('./routes/auth'));
 
 app.listen(3000,() => {
     console.log("Server started on port 3000");
