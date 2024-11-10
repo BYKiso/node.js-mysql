@@ -41,3 +41,5 @@ app.use('/auth', require('./routes/auth'));
 app.listen(3000,() => {
     console.log("Server started on port 3000");
 })
+
+// i wanna kiss sam
